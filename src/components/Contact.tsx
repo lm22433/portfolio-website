@@ -68,7 +68,7 @@ export default function Contact() {
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#fc9867] mb-4 tracking-tight px-4">
             <span className="code-bracket">{'< '}</span>
-            <span className="code-function">Contact Me</span>
+            <span className="code-keyword">Contact Me</span>
             <span className="code-bracket">{' />'}</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-[#ff6188] mx-auto mb-4 sm:mb-6"></div>

@@ -52,9 +52,9 @@ export default function Footer() {
               onClick={scrollToTop}
               className="text-xl sm:text-2xl font-bold text-[#ffd866] hover:text-[#ffed4e] transition-colors tracking-tight"
             >
-              <span className="text-[#939293]">{'<'}</span>
-              <span className="text-[#78dce8]">HG</span>
-              <span className="text-[#939293]">{' />'}</span>
+              <span className="code-bracket">{'<'}</span>
+              <span className="code-keyword">Harry Greentree</span>
+              <span className="code-bracket">{' />'}</span>
             </button>
             <p className="text-sm sm:text-base text-[#939293] max-w-xs mx-auto sm:mx-0">
               <span className="code-comment">{'// '}</span>
