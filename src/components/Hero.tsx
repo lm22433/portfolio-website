@@ -19,76 +19,82 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="text-center space-y-8">
           <div className="space-y-4 animate-fade-in-up">
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-medium">
-              <span className="code-bracket">{'<'}</span>Hello, I'm<span className="code-bracket">{' />'}</span>
+            <p className="text-base sm:text-lg md:text-xl font-medium px-2">
+              <span className="code-bracket">{'<'}</span>
+              <span className="code-function">Hello</span>
+              <span className="text-[#fcfcfa]">, I'm</span>
+              <span className="code-bracket">{' />'}</span>
             </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#181818] dark:text-white tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#ffd866] tracking-tight px-2 break-words">
               Harry Greentree
             </h1>
-            <p className="text-2xl sm:text-3xl md:text-4xl text-gray-700 dark:text-gray-300 font-light tracking-wide">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#78dce8] font-light tracking-wide px-2">
               <span className="code-bracket">{'{ '}</span>
-              Software Developer
+              <span className="code-class">Software Developer</span>
               <span className="code-bracket">{' }'}</span>
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            <span className="code-bracket">// </span>
-            Building innovative digital experiences with modern technologies.
-            Passionate about creating elegant solutions to complex problems.
+          <p className="text-base sm:text-lg md:text-xl text-[#939293] max-w-2xl mx-auto leading-relaxed px-4">
+            <span className="code-comment">// </span>
+            <span className="text-[#fcfcfa]">Building innovative digital experiences with modern technologies.</span>
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
+            <span className="code-comment">// </span>
+            <span className="text-[#fcfcfa]">Passionate about creating elegant solutions to complex problems.</span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-4 px-4 max-w-4xl mx-auto">
             <button
               onClick={() => scrollToSection("#projects")}
-              className="px-8 py-4 bg-[#181818] dark:bg-white text-white dark:text-[#181818] rounded-lg font-medium hover:opacity-90 transition-all transform hover:scale-105 shadow-lg tracking-wide"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#ffd866] text-[#2d2a2e] rounded-lg font-medium hover:bg-[#ffed4e] transition-all transform hover:scale-105 shadow-lg tracking-wide border border-[#ffd866] text-sm sm:text-base"
             >
-              <span className="code-bracket mr-2">$</span>
+              <span className="code-keyword mr-2">$</span>
               View My Work
             </button>
             <button
               onClick={() => downloadCV()}
-              className="px-8 py-4 border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white rounded-lg font-medium hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-105 flex items-center gap-2 tracking-wide"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#78dce8] text-[#78dce8] rounded-lg font-medium hover:bg-[#78dce8] hover:text-[#2d2a2e] transition-all transform hover:scale-105 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base"
             >
-              <Download className="w-5 h-5" />
-              Download CV
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="code-function">Download CV</span>
             </button>
             <button
               onClick={() => scrollToSection("#contact")}
-              className="px-8 py-4 border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white rounded-lg font-medium hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-105 tracking-wide"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#ff6188] text-[#ff6188] rounded-lg font-medium hover:bg-[#ff6188] hover:text-[#2d2a2e] transition-all transform hover:scale-105 tracking-wide text-sm sm:text-base"
             >
-              Get In Touch
+              <span className="code-keyword">Get In Touch</span>
             </button>
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-6 pt-8">
+          <div className="flex justify-center space-x-4 sm:space-x-6 pt-8 px-4">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
+              className="p-2 sm:p-3 rounded-full border-2 border-[#a9dc76] text-[#a9dc76] hover:bg-[#a9dc76] hover:text-[#2d2a2e] transition-all transform hover:scale-110"
               aria-label="GitHub"
             >
-              <Github className="w-6 h-6" />
+              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
+              className="p-2 sm:p-3 rounded-full border-2 border-[#78dce8] text-[#78dce8] hover:bg-[#78dce8] hover:text-[#2d2a2e] transition-all transform hover:scale-110"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="mailto:your.email@example.com"
-              className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
+              className="p-2 sm:p-3 rounded-full border-2 border-[#ab9df2] text-[#ab9df2] hover:bg-[#ab9df2] hover:text-[#2d2a2e] transition-all transform hover:scale-110"
               aria-label="Email"
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </div>
         </div>
@@ -100,7 +106,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
         aria-label="Scroll to about section"
       >
-        <ArrowDown className="w-8 h-8 text-[#181818] dark:text-white" />
+        <ArrowDown className="w-8 h-8 text-[#ffd866]" />
       </button>
     </section>
   );

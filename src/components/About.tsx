@@ -48,72 +48,109 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-[#1a1a1a]"
+      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-[#363337]"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#181818] dark:text-white mb-4 tracking-tight">
-            <span className="opacity-50">{'< '}</span>
-            About Me
-            <span className="opacity-50">{' />'}</span>
+        {/* Section Header with IDE styling */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#ffd866] mb-4 tracking-tight px-4">
+            <span className="text-[#939293]">{'< '}</span>
+            <span className="text-[#ff6188]">About Me</span>
+            <span className="text-[#939293]">{' />'}</span>
           </h2>
-          <div className="w-20 h-1 bg-[#181818] dark:bg-white mx-auto"></div>
+          <div className="w-16 sm:w-20 h-1 bg-[#ff6188] mx-auto"></div>
         </div>
 
         {/* About Content */}
-        <div className="mb-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              I'm a passionate full-stack developer with a love for creating
-              beautiful, functional, and user-friendly applications. With
-              several years of experience in web development, I specialize in
-              building modern web applications using cutting-edge technologies.
-            </p>
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing my knowledge with
-              the developer community.
-            </p>
+        <div className="mb-12 sm:mb-16 md:mb-20">
+          <div className="max-w-3xl mx-auto">
+            <div className="ide-panel">
+              <div className="ide-panel-header">
+                <div className="ide-panel-dot red"></div>
+                <div className="ide-panel-dot yellow"></div>
+                <div className="ide-panel-dot green"></div>
+                <span className="text-[#939293] text-xs sm:text-sm ml-2">bio.md</span>
+              </div>
+              <div className="p-4 sm:p-6 md:p-8">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#fcfcfa] leading-relaxed mb-6">
+                  <span className="code-comment">{'/* '}</span>
+                  <br />
+                  <span className="code-comment ml-2 sm:ml-4">I'm a passionate full-stack developer with a love for creating</span>
+                  <br />
+                  <span className="code-comment ml-2 sm:ml-4">beautiful, functional, and user-friendly applications. With</span>
+                  <br />
+                  <span className="code-comment ml-2 sm:ml-4">several years of experience in web development, I specialize in</span>
+                  <br />
+                  <span className="code-comment ml-2 sm:ml-4">building modern web applications using cutting-edge technologies.</span>
+                  <br />
+                  <span className="code-comment">{' */'}</span>
+                </p>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#fcfcfa] leading-relaxed break-words">
+                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-variable">interests</span>{' '}
+                  <span className="text-[#fcfcfa]">=</span>{' '}
+                  <span className="code-bracket">{'['}</span>
+                  <span className="code-string">'exploring new tech'</span>
+                  <span className="text-[#fcfcfa]">, </span>
+                  <span className="code-string">'open-source'</span>
+                  <span className="text-[#fcfcfa]">, </span>
+                  <span className="code-string">'community'</span>
+                  <span className="code-bracket">{']'}</span>
+                  <span className="text-[#fcfcfa]">;</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {skills.map((skill) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20">
+          {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className="p-6 bg-white dark:bg-[#222222] rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 duration-300 border border-gray-200 dark:border-gray-700"
+              className="ide-panel hover:border-[#ffd866] transition-all transform hover:-translate-y-2 duration-300"
             >
-              <div className="text-[#181818] dark:text-white mb-4">
-                {skill.icon}
+              <div className="ide-panel-header">
+                <span className="text-[#939293] text-xs">{index + 1}</span>
               </div>
-              <h3 className="text-xl font-bold text-[#181818] dark:text-white mb-2 tracking-tight">
-                <span className="opacity-50 text-sm">{'{ '}</span>
-                {skill.title}
-                <span className="opacity-50 text-sm">{' }'}</span>
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                {skill.description}
-              </p>
+              <div className="p-4 sm:p-6">
+                <div className="text-[#ffd866] mb-3 sm:mb-4">
+                  {skill.icon}
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#fcfcfa] mb-2 tracking-tight">
+                  <span className="code-keyword text-xs sm:text-sm">{'class '}</span>
+                  <span className="code-class">{skill.title}</span>
+                </h3>
+                <p className="text-sm sm:text-base text-[#939293] leading-relaxed">
+                  {skill.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Technologies */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#181818] dark:text-white text-center mb-8">
-            Technologies I Work With
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#78dce8] text-center mb-6 sm:mb-8 px-4 break-words">
+            <span className="code-keyword">const</span>{' '}
+            <span className="code-variable">technologies</span>{' '}
+            <span className="text-[#fcfcfa]">=</span>{' '}
+            <span className="code-bracket">{'['}</span>
           </h3>
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-            {technologies.map((tech) => (
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+            {technologies.map((tech, index) => (
               <span
                 key={tech}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-[#222222] text-[#181818] dark:text-white rounded-full font-medium shadow-md hover:shadow-lg transition-all transform hover:scale-105 cursor-default"
+                className="px-3 sm:px-4 md:px-6 py-2 sm:py-2 md:py-3 bg-[#2d2a2e] border border-[#423f43] text-[#a9dc76] rounded-lg font-medium hover:border-[#a9dc76] hover:shadow-lg transition-all transform hover:scale-105 cursor-default text-xs sm:text-sm md:text-base"
               >
-                {tech}
+                <span className="code-string">'{tech}'</span>
+                {index < technologies.length - 1 && <span className="text-[#fcfcfa]">,</span>}
               </span>
             ))}
+          </div>
+          <div className="text-center mt-3 sm:mt-4">
+            <span className="text-xl sm:text-2xl text-[#78dce8] code-bracket">{']'}</span>
+            <span className="text-xl sm:text-2xl text-[#fcfcfa]">;</span>
           </div>
         </div>
       </div>

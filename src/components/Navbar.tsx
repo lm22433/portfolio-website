@@ -40,45 +40,47 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? "bg-white/80 dark:bg-[#181818]/80 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
+          ? "bg-[#2d2a2e]/95 backdrop-blur-lg border-[#423f43]"
+          : "bg-[#2d2a2e]/80 border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
+          {/* Logo with IDE styling */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="text-2xl font-bold text-[#181818] dark:text-white hover:opacity-80 transition-opacity tracking-tight"
+            className="text-xl sm:text-2xl font-bold text-[#ffd866] hover:text-[#ffed4e] transition-colors tracking-tight flex items-center gap-1 sm:gap-2"
           >
-            <span className="opacity-50">{'<'}</span>
-            Portfolio
-            <span className="opacity-50">{' />'}</span>
+            <span className="text-[#939293]">{'<'}</span>
+            <span className="text-[#78dce8]">HG</span>
+            <span className="text-[#939293]">{' />'}</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[#181818] dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium relative group tracking-wide"
+                className="text-sm lg:text-base text-[#ff6188] hover:text-[#ffd866] transition-colors font-medium relative group tracking-wide"
               >
-                <span className="opacity-50 group-hover:opacity-100 transition-opacity">{'> '}</span>
-                {link.name}
+                <span className="text-[#939293]">{'<'}</span>
+                <span className="mx-1">{link.name}</span>
+                <span className="text-[#939293]">{' />'}</span>
               </a>
             ))}
             <button
               onClick={handleDownloadCV}
-              className="text-[#181818] dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium relative group tracking-wide cursor-pointer"
+              className="px-3 lg:px-4 py-2 text-[#ff6188] rounded hover:text-[#ffd866] transition-all font-medium tracking-wide cursor-pointer text-sm lg:text-base group"
               aria-label="Download CV"
             >
-              <span className="opacity-50 group-hover:opacity-100 transition-opacity">{'> '}</span>
-              CV
+              <span className="text-[#939293]">{'<'}</span>
+              <span className="mx-1">CV</span>
+              <span className="text-[#939293]">{' />'}</span>
             </button>
           </div>
 
@@ -86,7 +88,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg hover:bg-[#363337] transition-colors text-[#ffd866]"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -107,22 +109,26 @@ export default function Navbar() {
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="px-4 pt-2 pb-4 space-y-2 bg-white/95 dark:bg-[#181818]/95 backdrop-blur-lg shadow-lg">
+        <div className="px-4 pt-2 pb-4 space-y-2 bg-[#363337]/95 backdrop-blur-lg border-t border-[#423f43]">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="block px-4 py-3 rounded-lg text-[#181818] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+              className="block px-4 py-3 rounded-lg text-[#ff6188] hover:bg-[#423f43] hover:text-[#ffd866] transition-colors font-medium text-sm sm:text-base"
             >
-              {link.name}
+              <span className="text-[#939293]">{'<'}</span>
+              <span className="mx-1">{link.name}</span>
+              <span className="text-[#939293]">{' />'}</span>
             </a>
           ))}
           <button
             onClick={handleDownloadCV}
-            className="block w-full text-left px-4 py-3 rounded-lg text-[#181818] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium cursor-pointer"
+            className="block w-full text-left px-4 py-3 rounded-lg text-[#ff6188] hover:bg-[#423f43] hover:text-[#ffd866] transition-colors font-medium cursor-pointer text-sm sm:text-base"
           >
-            Download CV
+            <span className="text-[#939293]">{'<'}</span>
+            <span className="mx-1">Download CV</span>
+            <span className="text-[#939293]">{' />'}</span>
           </button>
         </div>
       </div>

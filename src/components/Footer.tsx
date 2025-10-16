@@ -43,38 +43,40 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white dark:bg-[#0f0f0f] border-t border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="bg-[#2d2a2e] border-t border-[#423f43]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <button
               onClick={scrollToTop}
-              className="text-2xl font-bold text-[#181818] dark:text-white hover:opacity-80 transition-opacity tracking-tight"
+              className="text-xl sm:text-2xl font-bold text-[#ffd866] hover:text-[#ffed4e] transition-colors tracking-tight"
             >
-              <span className="opacity-50">{'<'}</span>
-              Portfolio
-              <span className="opacity-50">{' />'}</span>
+              <span className="text-[#939293]">{'<'}</span>
+              <span className="text-[#78dce8]">HG</span>
+              <span className="text-[#939293]">{' />'}</span>
             </button>
-            <p className="text-gray-600 dark:text-gray-400 max-w-xs">
-              <span className="opacity-50">{'// '}</span>
-              Building innovative digital experiences with passion and precision.
+            <p className="text-sm sm:text-base text-[#939293] max-w-xs mx-auto sm:mx-0">
+              <span className="code-comment">{'// '}</span>
+              <span className="text-[#fcfcfa]">Building innovative digital experiences with passion and precision.</span>
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-[#181818] dark:text-white">
-              Quick Links
+          <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-semibold text-[#ffd866]">
+              <span className="code-keyword">const</span>{' '}
+              <span className="code-variable">quickLinks</span>
             </h3>
             <nav className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
+              {navLinks.map((link, index) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-gray-600 dark:text-gray-400 hover:text-[#181818] dark:hover:text-white transition-colors w-fit"
+                  className="text-sm sm:text-base text-[#939293] hover:text-[#a9dc76] transition-colors w-fit mx-auto sm:mx-0"
                 >
+                  <span className="text-[#5b595c] mr-2">{index + 1}.</span>
                   {link.name}
                 </a>
               ))}
@@ -82,18 +84,19 @@ export default function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-[#181818] dark:text-white">
-              Connect
+          <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-semibold text-[#ffd866]">
+              <span className="code-keyword">const</span>{' '}
+              <span className="code-variable">social</span>
             </h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4 justify-center sm:justify-start">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
+                  className="p-2 sm:p-3 rounded-full border border-[#423f43] text-[#78dce8] hover:bg-[#78dce8] hover:text-[#2d2a2e] hover:border-[#78dce8] transition-all transform hover:scale-110"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -104,13 +107,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-2">
-              © {currentYear} Harry Greentree. All rights reserved.
+        <div className="pt-6 sm:pt-8 border-t border-[#423f43]">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0 text-center md:text-left">
+            <p className="text-[#939293] text-xs sm:text-sm flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
+              <span className="code-comment">{'/* '}</span>
+              <span>© {currentYear} Harry Greentree. All rights reserved.</span>
+              <span className="code-comment">{' */'}</span>
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Made with Next.js + TailwindCSS
+            <p className="text-[#939293] text-xs sm:text-sm">
+              <span className="code-comment">{'// '}</span>
+              <span className="text-[#fcfcfa]">Made with </span>
+              <span className="text-[#a9dc76]">Next.js</span>
+              <span className="text-[#fcfcfa]"> + </span>
+              <span className="text-[#78dce8]">TailwindCSS</span>
             </p>
           </div>
         </div>
