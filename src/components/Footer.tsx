@@ -43,28 +43,28 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#2d2a2e] border-t border-[#423f43]">
+    <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand Section */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <button
               onClick={scrollToTop}
-              className="text-xl sm:text-2xl font-bold text-[#ffd866] hover:text-[#ffed4e] transition-colors tracking-tight"
+              className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight"
             >
               <span className="code-bracket">{'<'}</span>
               <span className="code-keyword">Harry Greentree</span>
               <span className="code-bracket">{' />'}</span>
             </button>
-            <p className="text-sm sm:text-base text-[#939293] max-w-xs mx-auto sm:mx-0">
+            <p className="text-sm sm:text-base text-text-muted max-w-xs mx-auto sm:mx-0">
               <span className="code-comment">{'// '}</span>
-              <span className="text-[#fcfcfa]">Building innovative digital experiences with passion and precision.</span>
+              <span className="text-foreground">Building innovative digital experiences with passion and precision.</span>
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-            <h3 className="text-base sm:text-lg font-semibold text-[#ffd866]">
+            <h3 className="text-base sm:text-lg font-semibold text-accent">
               <span className="code-keyword">const</span>{' '}
               <span className="code-variable">quickLinks</span>
             </h3>
@@ -74,9 +74,9 @@ export default function Footer() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm sm:text-base text-[#939293] hover:text-[#a9dc76] transition-colors w-fit mx-auto sm:mx-0"
+                  className="text-sm sm:text-base text-text-muted hover:text-green transition-colors w-fit mx-auto sm:mx-0"
                 >
-                  <span className="text-[#5b595c] mr-2">{index + 1}.</span>
+                  <span className="text-text-muted mr-2">{index + 1}.</span>
                   {link.name}
                 </a>
               ))}
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-            <h3 className="text-base sm:text-lg font-semibold text-[#ffd866]">
+            <h3 className="text-base sm:text-lg font-semibold text-accent">
               <span className="code-keyword">const</span>{' '}
               <span className="code-variable">social</span>
             </h3>
@@ -96,7 +96,7 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 sm:p-3 rounded-full border border-[#423f43] text-[#78dce8] hover:bg-[#78dce8] hover:text-[#2d2a2e] hover:border-[#78dce8] transition-all transform hover:scale-110"
+                  className="p-2 sm:p-3 rounded-full border border-border text-blue hover:bg-blue hover:text-background hover:border-blue transition-all transform hover:scale-110"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -107,19 +107,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 sm:pt-8 border-t border-[#423f43]">
+        <div className="pt-6 sm:pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0 text-center md:text-left">
-            <p className="text-[#939293] text-xs sm:text-sm flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
+            <p className="text-text-muted text-xs sm:text-sm flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
               <span className="code-comment">{'/* '}</span>
               <span>© {currentYear} Harry Greentree. All rights reserved.</span>
               <span className="code-comment">{' */'}</span>
             </p>
-            <p className="text-[#939293] text-xs sm:text-sm">
+            <p className="text-text-muted text-xs sm:text-sm">
               <span className="code-comment">{'// '}</span>
-              <span className="text-[#fcfcfa]">Made with </span>
-              <span className="text-[#a9dc76]">Next.js</span>
-              <span className="text-[#fcfcfa]"> + </span>
-              <span className="text-[#78dce8]">TailwindCSS</span>
+              <span className="text-foreground">Made with </span>
+              <span className="text-green">Next.js</span>
+              <span className="text-foreground"> + </span>
+              <span className="text-blue">TailwindCSS</span>
             </p>
           </div>
         </div>

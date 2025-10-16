@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { downloadCV } from "@/utils/downloadCV";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,8 +43,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? "bg-[#2d2a2e]/95 backdrop-blur-lg border-[#423f43]"
-          : "bg-[#2d2a2e]/80 border-transparent"
+          ? "bg-background/95 backdrop-blur-lg border-border"
+          : "bg-background/80 border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +52,7 @@ export default function Navbar() {
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="text-xl sm:text-2xl font-bold text-[#ffd866] hover:text-[#ffed4e] transition-colors tracking-tight flex items-center gap-1 sm:gap-2"
+            className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight flex items-center gap-1 sm:gap-2"
           >
             <span className="code-bracket">{'<'}</span>
             <span className="code-keyword">Harry Greentree</span>
@@ -65,29 +66,31 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm lg:text-base text-[#ff6188] hover:text-[#ffd866] transition-colors font-medium relative group tracking-wide"
+                className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide"
               >
-                <span className="text-[#939293]">{'<'}</span>
+                <span className="text-text-muted">{'<'}</span>
                 <span className="mx-1">{link.name}</span>
-                <span className="text-[#939293]">{' />'}</span>
+                <span className="text-text-muted">{' />'}</span>
               </a>
             ))}
             <button
               onClick={handleDownloadCV}
-              className="text-sm lg:text-base text-[#ff6188] hover:text-[#ffd866] transition-colors font-medium relative group tracking-wide cursor-pointer"
+              className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide cursor-pointer"
               aria-label="Download CV"
             >
-              <span className="text-[#939293]">{'<'}</span>
+              <span className="text-text-muted">{'<'}</span>
               <span className="mx-1">CV</span>
-              <span className="text-[#939293]">{' />'}</span>
+              <span className="text-text-muted">{' />'}</span>
             </button>
+            <ThemeSwitcher />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Button and Theme Switcher */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-[#363337] transition-colors text-[#ffd866]"
+              className="p-2 rounded-lg hover:bg-background-lighter transition-colors text-accent"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -108,26 +111,26 @@ export default function Navbar() {
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="px-4 pt-2 pb-4 space-y-2 bg-[#363337]/95 backdrop-blur-lg border-t border-[#423f43]">
+        <div className="px-4 pt-2 pb-4 space-y-2 bg-background-lighter/95 backdrop-blur-lg border-t border-border">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="block px-4 py-3 rounded-lg text-[#ff6188] hover:bg-[#423f43] hover:text-[#ffd866] transition-colors font-medium text-sm sm:text-base"
+              className="block px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium text-sm sm:text-base"
             >
-              <span className="text-[#939293]">{'<'}</span>
+              <span className="text-text-muted">{'<'}</span>
               <span className="mx-1">{link.name}</span>
-              <span className="text-[#939293]">{' />'}</span>
+              <span className="text-text-muted">{' />'}</span>
             </a>
           ))}
           <button
             onClick={handleDownloadCV}
-            className="block w-full text-left px-4 py-3 rounded-lg text-[#ff6188] hover:bg-[#423f43] hover:text-[#ffd866] transition-colors font-medium cursor-pointer text-sm sm:text-base"
+            className="block w-full text-left px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium cursor-pointer text-sm sm:text-base"
           >
-            <span className="text-[#939293]">{'<'}</span>
+            <span className="text-text-muted">{'<'}</span>
             <span className="mx-1">Download CV</span>
-            <span className="text-[#939293]">{' />'}</span>
+            <span className="text-text-muted">{' />'}</span>
           </button>
         </div>
       </div>

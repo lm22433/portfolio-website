@@ -1,29 +1,84 @@
 @import "tailwindcss";
 
-/* Monokai Pro Theme Colors */
-:root {
-  /* Base colors */
-  --background: #2d2a2e;
-  --background-lighter: #363337;
-  --background-selection: #423f43;
-  --foreground: #fcfcfa;
+/* Catppuccin Mocha Theme (Dark) - Default */
+:root,
+[data-theme="mocha"] {
+  --background: #11111b;
+  --background-lighter: #1e1e2e;
+  --background-selection: #313244;
+  --foreground: #cdd6f4;
   
-  /* Monokai Pro accent colors */
-  --monokai-yellow: #ffd866;
-  --monokai-green: #a9dc76;
-  --monokai-blue: #78dce8;
-  --monokai-pink: #ff6188;
-  --monokai-purple: #ab9df2;
-  --monokai-orange: #fc9867;
+  --accent: #f9e2af;
+  --accent-secondary: #f38ba8;
+  --text-muted: #6c7086;
+  --border: #45475a;
   
-  /* UI colors */
-  --primary: #2d2a2e;
-  --secondary: #363337;
-  --accent: #ffd866;
-  --accent-secondary: #ff6188;
-  --text-muted: #939293;
-  --border: #423f43;
-  --line-number: #5b595c;
+  --color-yellow: #f9e2af;
+  --color-green: #a6e3a1;
+  --color-blue: #89b4fa;
+  --color-pink: #f38ba8;
+  --color-purple: #cba6f7;
+  --color-orange: #fab387;
+}
+
+/* Catppuccin Latte Theme (Light) */
+[data-theme="latte"] {
+  --background: #dce0e8;
+  --background-lighter: #ccd0da;
+  --background-selection: #bcc0cc;
+  --foreground: #4c4f69;
+  
+  --accent: #df8e1d;
+  --accent-secondary: #d20f39;
+  --text-muted: #9ca0b0;
+  --border: #ccd0da;
+  
+  --color-yellow: #df8e1d;
+  --color-green: #40a02b;
+  --color-blue: #1e66f5;
+  --color-pink: #d20f39;
+  --color-purple: #8839ef;
+  --color-orange: #fe640b;
+}
+
+/* Catppuccin Frappé Theme (Dark) */
+[data-theme="frappe"] {
+  --background: #232634;
+  --background-lighter: #303446;
+  --background-selection: #414559;
+  --foreground: #c6d0f5;
+  
+  --accent: #e5c890;
+  --accent-secondary: #ea999c;
+  --text-muted: #737994;
+  --border: #51576d;
+  
+  --color-yellow: #e5c890;
+  --color-green: #a6d189;
+  --color-blue: #8caaee;
+  --color-pink: #ea999c;
+  --color-purple: #ca9ee6;
+  --color-orange: #ef9f76;
+}
+
+/* Catppuccin Macchiato Theme (Dark) */
+[data-theme="macchiato"] {
+  --background: #181926;
+  --background-lighter: #24273a;
+  --background-selection: #363a4f;
+  --foreground: #cad3f5;
+  
+  --accent: #eed49f;
+  --accent-secondary: #ed8796;
+  --text-muted: #6e738d;
+  --border: #494d64;
+  
+  --color-yellow: #eed49f;
+  --color-green: #a6da95;
+  --color-blue: #8aadf4;
+  --color-pink: #ed8796;
+  --color-purple: #c6a0f6;
+  --color-orange: #f5a97f;
 }
 
 @theme inline {
@@ -31,19 +86,18 @@
   --color-background-lighter: var(--background-lighter);
   --color-background-selection: var(--background-selection);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --color-primary: var(--background);
+  --color-secondary: var(--background-lighter);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent-secondary);
-  --color-monokai-yellow: var(--monokai-yellow);
-  --color-monokai-green: var(--monokai-green);
-  --color-monokai-blue: var(--monokai-blue);
-  --color-monokai-pink: var(--monokai-pink);
-  --color-monokai-purple: var(--monokai-purple);
-  --color-monokai-orange: var(--monokai-orange);
+  --color-yellow: var(--color-yellow);
+  --color-green: var(--color-green);
+  --color-blue: var(--color-blue);
+  --color-pink: var(--color-pink);
+  --color-purple: var(--color-purple);
+  --color-orange: var(--color-orange);
   --color-text-muted: var(--text-muted);
   --color-border: var(--border);
-  --color-line-number: var(--line-number);
   --font-jetbrains-mono: var(--font-jetbrains-mono);
 }
 
@@ -64,7 +118,7 @@ body {
 /* Selection styling */
 ::selection {
   background: var(--background-selection);
-  color: var(--monokai-yellow);
+  color: var(--accent);
 }
 
 /* Custom animations for IDE aesthetic */
@@ -117,10 +171,10 @@ body {
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 5px var(--monokai-yellow), 0 0 10px var(--monokai-yellow);
+    box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
   }
   50% {
-    box-shadow: 0 0 10px var(--monokai-yellow), 0 0 20px var(--monokai-yellow);
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
   }
 }
 
@@ -128,7 +182,7 @@ body {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Monokai Pro syntax colors */
+/* Catppuccin syntax colors */
 .code-bracket {
   color: var(--text-muted);
   font-weight: 400;
@@ -140,37 +194,37 @@ body {
 }
 
 .code-string {
-  color: var(--monokai-yellow);
+  color: var(--color-yellow);
 }
 
 .code-function {
-  color: var(--monokai-pink);
+  color: var(--color-pink);
 }
 
 .code-keyword {
-  color: var(--monokai-pink);
+  color: var(--color-pink);
 }
 
 .code-variable {
-  color: var(--monokai-blue);
+  color: var(--color-blue);
 }
 
 .code-class {
-  color: var(--monokai-purple);
+  color: var(--color-purple);
 }
 
 .code-number {
-  color: var(--monokai-purple);
+  color: var(--color-purple);
 }
 
 /* Improved focus states for accessibility */
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--monokai-yellow);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* Custom Monokai scrollbar */
+/* Custom Catppuccin scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -180,13 +234,13 @@ a:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--line-number);
+  background: var(--text-muted);
   border-radius: 6px;
   border: 2px solid var(--background-lighter);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--foreground);
 }
 
 /* IDE-like panel styling */
@@ -227,15 +281,15 @@ a:focus-visible {
 }
 
 .ide-panel-dot.red {
-  background: var(--monokai-pink);
+  background: var(--color-pink);
 }
 
 .ide-panel-dot.yellow {
-  background: var(--monokai-yellow);
+  background: var(--color-yellow);
 }
 
 .ide-panel-dot.green {
-  background: var(--monokai-green);
+  background: var(--color-green);
 }
 
 /* Tab-like styling */
@@ -260,7 +314,7 @@ a:focus-visible {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--monokai-yellow);
+  background: var(--accent);
 }
 
 /* Gutter/line number styling */
@@ -268,7 +322,7 @@ a:focus-visible {
   background: var(--background);
   border-right: 1px solid var(--border);
   padding: 0.5rem;
-  color: var(--line-number);
+  color: var(--text-muted);
   user-select: none;
   min-width: 3rem;
   text-align: right;

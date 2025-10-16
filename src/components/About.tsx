@@ -48,17 +48,17 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-[#363337]"
+      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-background-lighter"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header with IDE styling */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#ffd866] mb-4 tracking-tight px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-4 tracking-tight px-4">
             <span className="code-bracket">{'< '}</span>
             <span className="code-keyword">About Me</span>
             <span className="code-bracket">{' />'}</span>
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-[#ff6188] mx-auto"></div>
+          <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto"></div>
         </div>
 
         {/* About Content */}
@@ -69,10 +69,10 @@ export default function About() {
                 <div className="ide-panel-dot red"></div>
                 <div className="ide-panel-dot yellow"></div>
                 <div className="ide-panel-dot green"></div>
-                <span className="text-[#939293] text-xs sm:text-sm ml-2">bio.md</span>
+                <span className="text-text-muted text-xs sm:text-sm ml-2">bio.md</span>
               </div>
               <div className="p-4 sm:p-6 md:p-8">
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#fcfcfa] leading-relaxed mb-6">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed mb-6">
                   <span className="code-comment">{'/* '}</span>
                   <br />
                   <span className="code-comment ml-2 sm:ml-4">I'm a passionate full-stack developer with a love for creating</span>
@@ -85,18 +85,18 @@ export default function About() {
                   <br />
                   <span className="code-comment">{' */'}</span>
                 </p>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#fcfcfa] leading-relaxed break-words">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed break-words">
                   <span className="code-keyword">const</span>{' '}
                   <span className="code-variable">interests</span>{' '}
-                  <span className="text-[#fcfcfa]">=</span>{' '}
+                  <span className="text-foreground">=</span>{' '}
                   <span className="code-bracket">{'['}</span>
                   <span className="code-string">'exploring new tech'</span>
-                  <span className="text-[#fcfcfa]">, </span>
+                  <span className="text-foreground">, </span>
                   <span className="code-string">'open-source'</span>
-                  <span className="text-[#fcfcfa]">, </span>
+                  <span className="text-foreground">, </span>
                   <span className="code-string">'community'</span>
                   <span className="code-bracket">{']'}</span>
-                  <span className="text-[#fcfcfa]">;</span>
+                  <span className="text-foreground">;</span>
                 </p>
               </div>
             </div>
@@ -108,20 +108,20 @@ export default function About() {
           {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className="ide-panel hover:border-[#ffd866] transition-all transform hover:-translate-y-2 duration-300"
+              className="ide-panel hover:border-accent transition-all transform hover:-translate-y-2 duration-300"
             >
               <div className="ide-panel-header">
-                <span className="text-[#939293] text-xs">{index + 1}</span>
+                <span className="text-text-muted text-xs">{index + 1}</span>
               </div>
               <div className="p-4 sm:p-6">
-                <div className="text-[#ffd866] mb-3 sm:mb-4">
+                <div className="text-accent mb-3 sm:mb-4">
                   {skill.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#fcfcfa] mb-2 tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 tracking-tight">
                   <span className="code-keyword text-xs sm:text-sm">{'class '}</span>
                   <span className="code-class">{skill.title}</span>
                 </h3>
-                <p className="text-sm sm:text-base text-[#939293] leading-relaxed">
+                <p className="text-sm sm:text-base text-text-muted leading-relaxed">
                   {skill.description}
                 </p>
               </div>
@@ -131,26 +131,26 @@ export default function About() {
 
         {/* Technologies */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#78dce8] text-center mb-6 sm:mb-8 px-4 break-words">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue text-center mb-6 sm:mb-8 px-4 break-words">
             <span className="code-keyword">const</span>{' '}
             <span className="code-variable">technologies</span>{' '}
-            <span className="text-[#fcfcfa]">=</span>{' '}
+            <span className="text-foreground">=</span>{' '}
             <span className="code-bracket">{'['}</span>
           </h3>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {technologies.map((tech, index) => (
               <span
                 key={tech}
-                className="px-3 sm:px-4 md:px-6 py-2 sm:py-2 md:py-3 bg-[#2d2a2e] border border-[#423f43] text-[#a9dc76] rounded-lg font-medium hover:border-[#a9dc76] hover:shadow-lg transition-all transform hover:scale-105 cursor-default text-xs sm:text-sm md:text-base"
+                className="px-3 sm:px-4 md:px-6 py-2 sm:py-2 md:py-3 bg-background border border-border text-green rounded-lg font-medium hover:border-green hover:shadow-lg transition-all transform hover:scale-105 cursor-default text-xs sm:text-sm md:text-base"
               >
                 <span className="code-string">'{tech}'</span>
-                {index < technologies.length - 1 && <span className="text-[#fcfcfa]">,</span>}
+                {index < technologies.length - 1 && <span className="text-foreground">,</span>}
               </span>
             ))}
           </div>
           <div className="text-center mt-3 sm:mt-4">
-            <span className="text-xl sm:text-2xl text-[#78dce8] code-bracket">{']'}</span>
-            <span className="text-xl sm:text-2xl text-[#fcfcfa]">;</span>
+            <span className="text-xl sm:text-2xl text-blue code-bracket">{']'}</span>
+            <span className="text-xl sm:text-2xl text-foreground">;</span>
           </div>
         </div>
       </div>
