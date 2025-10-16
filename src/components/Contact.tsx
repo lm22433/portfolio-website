@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function Contact() {
+  const interests = [];
   const [formData, setFormData] = useState({
     name: "",
     email: "",

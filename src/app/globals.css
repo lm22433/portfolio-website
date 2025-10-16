@@ -13,7 +13,7 @@
   --monokai-green: #a9dc76;
   --monokai-blue: #78dce8;
   --monokai-pink: #ff6188;
-  --monokai-purple: #020202;
+  --monokai-purple: #ab9df2;
   --monokai-orange: #fc9867;
   
   /* UI colors */
@@ -144,7 +144,7 @@ body {
 }
 
 .code-function {
-  color: var(--monokai-green);
+  color: var(--monokai-pink);
 }
 
 .code-keyword {

@@ -48,15 +48,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
-          {/* Logo with IDE styling */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
             className="text-xl sm:text-2xl font-bold text-[#ffd866] hover:text-[#ffed4e] transition-colors tracking-tight flex items-center gap-1 sm:gap-2"
           >
-            <span className="text-[#939293]">{'<'}</span>
-            <span className="text-[#78dce8]">HG</span>
-            <span className="text-[#939293]">{' />'}</span>
+            <span className="code-bracket">{'<'}</span>
+            <span className="code-keyword">Harry Greentree</span>
+            <span className="code-bracket">{' />'}</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -75,7 +74,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={handleDownloadCV}
-              className="px-3 lg:px-4 py-2 text-[#ff6188] rounded hover:text-[#ffd866] transition-all font-medium tracking-wide cursor-pointer text-sm lg:text-base group"
+              className="text-sm lg:text-base text-[#ff6188] hover:text-[#ffd866] transition-colors font-medium relative group tracking-wide cursor-pointer"
               aria-label="Download CV"
             >
               <span className="text-[#939293]">{'<'}</span>
