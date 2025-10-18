@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Send } from "lucide-react";
+import IDEWindow from "./IDEWindow";
 
 export default function Contact() {
-  const interests = [];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,118 +37,174 @@ export default function Contact() {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      value: "your.email@example.com",
-      link: "mailto:your.email@example.com",
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
-      value: "San Francisco, CA",
-      link: null,
-    },
-  ];
-
   return (
     <section
       id="contact"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-background-lighter"
+      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-background-lighter"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-orange mb-4 tracking-tight px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-orange mb-3 tracking-tight px-4">
             <span className="code-bracket">{'< '}</span>
             <span className="code-keyword">Contact Me</span>
             <span className="code-bracket">{' />'}</span>
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-text-muted max-w-2xl mx-auto px-4">
+          <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto mb-3 sm:mb-4"></div>
+          <p className="text-xs sm:text-sm md:text-base text-text-muted max-w-2xl mx-auto px-4">
             <span className="code-comment">{'// '}</span>
             <span className="text-foreground">Have a project in mind or just want to chat? Feel free to reach out!</span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Info */}
-          <div className="space-y-6 sm:space-y-8">
-            <div className="ide-panel">
-              <div className="ide-panel-header">
-                <div className="ide-panel-dot red"></div>
-                <div className="ide-panel-dot yellow"></div>
-                <div className="ide-panel-dot green"></div>
-                <span className="text-text-muted text-xs sm:text-sm ml-2">info.json</span>
+          <div className="space-y-4 sm:space-y-6">
+            <IDEWindow title="contact_me.md">
+              <div className="p-4 sm:p-5 font-mono text-sm">
+                <div className="space-y-1">
+                  <div>
+                    <span className="text-blue">#</span>
+                    <span className="text-foreground"> Get In Touch</span>
+                  </div>
+
+                  {/* Paragraph */}
+                  <div>
+                    <span className="text-foreground">
+                      I'm open to new projects, collaborations, and speaking opportunities. If you have an idea or
+                      would like to work together, let's connect.
+                    </span>
+                  </div>
+
+                  {/* Bullets */}
+                  <div>
+                    <span className="text-blue">-</span>
+                    <span className="text-foreground"> Project inquiries</span>
+                  </div>
+                  <div>
+                    <span className="text-blue">-</span>
+                    <span className="text-foreground"> Consulting and collaboration</span>
+                  </div>
+                  <div>
+                    <span className="text-blue">-</span>
+                    <span className="text-foreground"> General questions</span>
+                  </div>
+
+                  {/* Inline code for call-to-action */}
+                  <div className="mt-2">
+                    <span className="text-foreground">Use the form to </span>
+                    <span className="code-bracket">`</span>
+                    <span className="code-function">sendMessage()</span>
+                    <span className="code-bracket">`</span>
+                    <span className="text-foreground"> or reach out via the details below.</span>
+                  </div>
+                </div>
               </div>
-              <div className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-4 sm:mb-6 break-words">
-                  <span className="code-keyword">let</span>{' '}
-                  <span className="code-variable">connection</span>
-                </h3>
-                <p className="text-foreground text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
-                  <span className="code-comment">{'/* '}</span>
-                  <br />
-                  <span className="code-comment ml-2 sm:ml-4">I'm always open to discussing new projects, creative ideas, or</span>
-                  <br />
-                  <span className="code-comment ml-2 sm:ml-4">opportunities to be part of your vision.</span>
-                  <br />
-                  <span className="code-comment">{' */'}</span>
-                </p>
-              </div>
-            </div>
+            </IDEWindow>
 
             {/* Contact Details */}
-            <div className="space-y-4 sm:space-y-6">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={info.title}
-                  className="ide-panel hover:border-orange transition-all"
-                >
-                  <div className="p-3 sm:p-4 flex items-start space-x-3 sm:space-x-4">
-                    <div className="text-orange mt-1 flex-shrink-0">
-                      {info.icon}
+            <IDEWindow title="contact_details.ts">
+              <div className="p-4 sm:p-5 font-mono text-xs sm:text-sm">
+                <div className="space-y-3">
+                  {/* Email */}
+                  <div>
+                    <div>
+                      <span className="code-keyword text-blue">const</span>
+                      <span className="text-foreground"> </span>
+                      <span className="code-variable text-purple">email</span>
+                      <span className="text-foreground"> = </span>
+                      <span className="code-bracket text-yellow">{'{'}</span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-blue mb-1 text-sm sm:text-base">
-                        <span className="code-string">"{info.title}"</span>
+                    <div className="pl-4">
+                      <div>
+                        <span className="text-blue">type</span>
                         <span className="text-foreground">: </span>
-                      </h4>
-                      {info.link ? (
+                        <span className="code-string text-green">"Email"</span>
+                        <span className="text-foreground">,</span>
+                      </div>
+                      <div>
+                        <span className="text-blue">value</span>
+                        <span className="text-foreground">: </span>
                         <a
-                          href={info.link}
-                          className="text-green hover:opacity-80 transition-opacity text-sm sm:text-base break-words"
+                          href="mailto:harrygreentree@icloud.com"
+                          className="code-string text-green hover:text-accent transition-colors duration-200 underline decoration-green/30 hover:decoration-accent/50"
                         >
-                          {info.value}
+                          "harrygreentree@icloud.com"
                         </a>
-                      ) : (
-                        <p className="text-text-muted text-sm sm:text-base">
-                          {info.value}
-                        </p>
-                      )}
+                      </div>
+                    </div>
+                    <div>
+                      <span className="code-bracket text-yellow">{'}'}</span>
+                    </div>
+                  </div>
+
+                  {/* Phone Number */}
+                  <div>
+                    <div>
+                      <span className="code-keyword text-blue">const</span>
+                      <span className="text-foreground"> </span>
+                      <span className="code-variable text-purple">phone_number</span>
+                      <span className="text-foreground"> = </span>
+                      <span className="code-bracket text-yellow">{'{'}</span>
+                    </div>
+                    <div className="pl-4">
+                      <div>
+                        <span className="text-blue">type</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Phone Number"</span>
+                        <span className="text-foreground">,</span>
+                      </div>
+                      <div>
+                        <span className="text-blue">value</span>
+                        <span className="text-foreground">: </span>
+                        <a
+                          href="tel:+447366405543"
+                          className="code-string text-green hover:text-accent transition-colors duration-200 underline decoration-green/30 hover:decoration-accent/50"
+                        >
+                          "07366 405543"
+                        </a>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="code-bracket text-yellow">{'}'}</span>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div>
+                    <div>
+                      <span className="code-keyword text-blue">const</span>
+                      <span className="text-foreground"> </span>
+                      <span className="code-variable text-purple">location</span>
+                      <span className="text-foreground"> = </span>
+                      <span className="code-bracket text-yellow">{'{'}</span>
+                    </div>
+                    <div className="pl-4">
+                      <div>
+                        <span className="text-blue">type</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Location"</span>
+                        <span className="text-foreground">,</span>
+                      </div>
+                      <div>
+                        <span className="text-blue">value</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Southampton, UK"</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="code-bracket text-yellow">{'}'}</span>
+                      <span className="text-foreground">;</span>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            </IDEWindow>
           </div>
 
           {/* Contact Form */}
-          <div className="ide-panel">
-            <div className="ide-panel-header">
-              <div className="ide-panel-dot red"></div>
-              <div className="ide-panel-dot yellow"></div>
-              <div className="ide-panel-dot green"></div>
-              <span className="text-text-muted text-xs sm:text-sm ml-2">message.ts</span>
-            </div>
-            <form onSubmit={handleSubmit} className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
+          <IDEWindow title="message.ts">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3 sm:space-y-4">
               <div>
                 <label
                   htmlFor="name"
@@ -165,7 +221,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-sm sm:text-base"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-xs sm:text-sm"
                   placeholder="Your Name"
                 />
               </div>
@@ -186,7 +242,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-sm sm:text-base"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-xs sm:text-sm"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -207,7 +263,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-sm sm:text-base"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-xs sm:text-sm"
                   placeholder="What's this about?"
                 />
               </div>
@@ -227,8 +283,8 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors resize-none text-sm sm:text-base"
+                  rows={4}
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors resize-none text-xs sm:text-sm"
                   placeholder="Your message..."
                 />
               </div>
@@ -236,20 +292,20 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-green text-background rounded-lg font-medium hover:opacity-90 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 shadow-lg text-sm sm:text-base"
+                className="group w-full px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {status === "sending" && "Sending..."}
-                {status === "sent" && "✓ Message Sent!"}
+                {status === "sending" && <span>Sending...</span>}
+                {status === "sent" && <span>✓ Message Sent!</span>}
                 {status === "idle" && (
-                  <>
-                    <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="flex items-center justify-center gap-2">
+                    <Send className="w-4 h-4 group-hover:scale-110 transition-transform" />
                     <span className="code-function">sendMessage()</span>
-                  </>
+                  </span>
                 )}
-                {status === "error" && "Error - Try Again"}
+                {status === "error" && <span>Error - Try Again</span>}
               </button>
             </form>
-          </div>
+          </IDEWindow>
         </div>
       </div>
     </section>

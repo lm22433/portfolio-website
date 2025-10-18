@@ -1,67 +1,7 @@
 @import "tailwindcss";
 
-/* Catppuccin Mocha Theme (Dark) - Default */
+/* Catppuccin Macchiato Theme (Dark) - Default */
 :root,
-[data-theme="mocha"] {
-  --background: #11111b;
-  --background-lighter: #1e1e2e;
-  --background-selection: #313244;
-  --foreground: #cdd6f4;
-  
-  --accent: #f9e2af;
-  --accent-secondary: #f38ba8;
-  --text-muted: #6c7086;
-  --border: #45475a;
-  
-  --color-yellow: #f9e2af;
-  --color-green: #a6e3a1;
-  --color-blue: #89b4fa;
-  --color-pink: #f38ba8;
-  --color-purple: #cba6f7;
-  --color-orange: #fab387;
-}
-
-/* Catppuccin Latte Theme (Light) */
-[data-theme="latte"] {
-  --background: #dce0e8;
-  --background-lighter: #ccd0da;
-  --background-selection: #bcc0cc;
-  --foreground: #4c4f69;
-  
-  --accent: #df8e1d;
-  --accent-secondary: #d20f39;
-  --text-muted: #9ca0b0;
-  --border: #ccd0da;
-  
-  --color-yellow: #df8e1d;
-  --color-green: #40a02b;
-  --color-blue: #1e66f5;
-  --color-pink: #d20f39;
-  --color-purple: #8839ef;
-  --color-orange: #fe640b;
-}
-
-/* Catppuccin Frappé Theme (Dark) */
-[data-theme="frappe"] {
-  --background: #232634;
-  --background-lighter: #303446;
-  --background-selection: #414559;
-  --foreground: #c6d0f5;
-  
-  --accent: #e5c890;
-  --accent-secondary: #ea999c;
-  --text-muted: #737994;
-  --border: #51576d;
-  
-  --color-yellow: #e5c890;
-  --color-green: #a6d189;
-  --color-blue: #8caaee;
-  --color-pink: #ea999c;
-  --color-purple: #ca9ee6;
-  --color-orange: #ef9f76;
-}
-
-/* Catppuccin Macchiato Theme (Dark) */
 [data-theme="macchiato"] {
   --background: #181926;
   --background-lighter: #24273a;
@@ -178,8 +118,36 @@ body {
   }
 }
 
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Catppuccin syntax colors */
@@ -281,15 +249,15 @@ a:focus-visible {
 }
 
 .ide-panel-dot.red {
-  background: var(--color-pink);
+  background: #fe5f57;
 }
 
 .ide-panel-dot.yellow {
-  background: var(--color-yellow);
+  background: #febc2e;
 }
 
 .ide-panel-dot.green {
-  background: var(--color-green);
+  background: #27c840;
 }
 
 /* Tab-like styling */

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { downloadCV } from "@/utils/downloadCV";
-import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +58,6 @@ export default function Navbar() {
             <span className="code-bracket">{' />'}</span>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <a
@@ -76,18 +74,15 @@ export default function Navbar() {
             <button
               onClick={handleDownloadCV}
               className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide cursor-pointer"
-              aria-label="Download CV"
+              aria-label="CV"
             >
               <span className="text-text-muted">{'<'}</span>
               <span className="mx-1">CV</span>
               <span className="text-text-muted">{' />'}</span>
             </button>
-            <ThemeSwitcher />
           </div>
 
-          {/* Mobile Menu Button and Theme Switcher */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg hover:bg-background-lighter transition-colors text-accent"
@@ -103,7 +98,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isOpen
@@ -129,7 +123,7 @@ export default function Navbar() {
             className="block w-full text-left px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium cursor-pointer text-sm sm:text-base"
           >
             <span className="text-text-muted">{'<'}</span>
-            <span className="mx-1">Download CV</span>
+            <span className="mx-1">CV</span>
             <span className="text-text-muted">{' />'}</span>
           </button>
         </div>

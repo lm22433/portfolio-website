@@ -1,6 +1,7 @@
 "use client";
 
 import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import IDEWindow from "./IDEWindow";
 
 export default function About() {
   const skills = [
@@ -30,30 +31,14 @@ export default function About() {
     },
   ];
 
-  const technologies = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "Tailwind CSS",
-    "Git",
-    "Docker",
-    "PostgreSQL",
-    "MongoDB",
-    "AWS",
-    "Python",
-    "GraphQL",
-  ];
-
   return (
     <section
       id="about"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-background-lighter"
+      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-background-lighter"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header with IDE styling */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-4 tracking-tight px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-accent mb-3 tracking-tight px-4">
             <span className="code-bracket">{'< '}</span>
             <span className="code-keyword">About Me</span>
             <span className="code-bracket">{' />'}</span>
@@ -61,97 +46,169 @@ export default function About() {
           <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto"></div>
         </div>
 
-        {/* About Content */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <div className="max-w-3xl mx-auto">
-            <div className="ide-panel">
-              <div className="ide-panel-header">
-                <div className="ide-panel-dot red"></div>
-                <div className="ide-panel-dot yellow"></div>
-                <div className="ide-panel-dot green"></div>
-                <span className="text-text-muted text-xs sm:text-sm ml-2">bio.md</span>
-              </div>
-              <div className="p-4 sm:p-6 md:p-8">
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed mb-6">
-                  <span className="code-comment">{'/* '}</span>
-                  <br />
-                  <span className="code-comment ml-2 sm:ml-4">I'm a passionate full-stack developer with a love for creating</span>
-                  <br />
-                  <span className="code-comment ml-2 sm:ml-4">beautiful, functional, and user-friendly applications. With</span>
-                  <br />
-                  <span className="code-comment ml-2 sm:ml-4">several years of experience in web development, I specialize in</span>
-                  <br />
-                  <span className="code-comment ml-2 sm:ml-4">building modern web applications using cutting-edge technologies.</span>
-                  <br />
-                  <span className="code-comment">{' */'}</span>
-                </p>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed break-words">
-                  <span className="code-keyword">const</span>{' '}
-                  <span className="code-variable">interests</span>{' '}
-                  <span className="text-foreground">=</span>{' '}
-                  <span className="code-bracket">{'['}</span>
-                  <span className="code-string">'exploring new tech'</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+          <IDEWindow title="bio.md">
+            <div className="p-6 font-mono text-sm">
+              <div className="space-y-1">
+                <div>
+                  <span className="text-blue">#</span>
+                  <span className="text-foreground"> About Me</span>
+                </div>
+
+                <div className="pl-0">
+                  <span className="text-foreground">
+                    I'm a passionate full-stack developer creating beautiful, functional, and user-friendly applications. I focus on
+                    performance, accessibility, and developer experience.
+                  </span>
+                </div>
+
+                <div className="mt-2">
+                  <span className="text-blue">##</span>
+                  <span className="text-foreground"> Focus</span>
+                </div>
+
+                <div>
+                  <span className="text-blue">-</span>
+                  <span className="text-foreground"> Building modern web applications</span>
+                </div>
+                <div>
+                  <span className="text-blue">-</span>
+                  <span className="text-foreground"> Performance, scalability, and great UX</span>
+                </div>
+                <div>
+                  <span className="text-blue">-</span>
+                  <span className="text-foreground"> Collaboration, mentorship, and clear communication</span>
+                </div>
+
+                <div className="mt-2">
+                  <span className="text-foreground">Current stack: </span>
+                  <span className="code-bracket">`</span>
+                  <span className="code-string">Next.js</span>
+                  <span className="code-bracket">`</span>
                   <span className="text-foreground">, </span>
-                  <span className="code-string">'open-source'</span>
+                  <span className="code-bracket">`</span>
+                  <span className="code-string">TypeScript</span>
+                  <span className="code-bracket">`</span>
                   <span className="text-foreground">, </span>
-                  <span className="code-string">'community'</span>
-                  <span className="code-bracket">{']'}</span>
-                  <span className="text-foreground">;</span>
-                </p>
+                  <span className="code-bracket">`</span>
+                  <span className="code-string">Tailwind CSS</span>
+                  <span className="code-bracket">`</span>
+                </div>
               </div>
             </div>
-          </div>
+          </IDEWindow>
+
+          <IDEWindow title="technologies.ts">
+            <div className="p-6 font-mono text-sm">
+                <div className="space-y-1">
+                  <div className="mb-2">
+                    <span className="code-comment">{'/* '}</span>
+                    <span className="code-comment">
+                      Proficient across a broad range of software tools, frameworks, and programming languages
+                    </span>
+                    <span className="code-comment">{' */'}</span>
+                  </div>
+                  <div>
+                    <span className="code-keyword">const</span>
+                    <span className="text-foreground"> technologies </span>
+                    <span className="code-bracket">=</span>
+                    <span className="text-foreground"> </span>
+                    <span className="code-bracket">{`{`}</span>
+                  </div>
+
+                  <div className="pl-4 space-y-1">
+                    <div>
+                      <span className="code-string">"Programming Languages"</span>
+                      <span className="code-bracket">:</span>
+                      <span className="text-foreground"> [ </span>
+                      <span className="code-string">""</span>
+                      <span className="text-foreground"> ]</span>
+                      <span className="code-bracket">,</span>
+                    </div>
+                    <div>
+                      <span className="code-string">"Web Development"</span>
+                      <span className="code-bracket">:</span>
+                      <span className="text-foreground"> [ </span>
+                      <span className="code-string">"HTML"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "CSS"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "JavaScript"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "TypeScript"</span>
+                      <span className="text-foreground"> ]</span>
+                      <span className="code-bracket">,</span>
+                    </div>
+                    <div>
+                      <span className="code-string">"Frameworks"</span>
+                      <span className="code-bracket">:</span>
+                      <span className="text-foreground"> [ </span>
+                      <span className="code-string">""</span>
+                      <span className="text-foreground"> ]</span>
+                      <span className="code-bracket">,</span>
+                    </div>
+                    <div>
+                      <span className="code-string">"Databases"</span>
+                      <span className="code-bracket">:</span>
+                      <span className="text-foreground"> [ </span>
+                      <span className="code-string">"PostgreSQL"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "MySQL"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "MongoDB"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Redis"</span>
+                      <span className="text-foreground"> ]</span>
+                      <span className="code-bracket">,</span>
+                    </div>
+                    <div>
+                      <span className="code-string">"DevOps & Containerisation"</span>
+                      <span className="code-bracket">:</span>
+                      <span className="text-foreground"> [ </span>
+                      <span className="code-string">"Git"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Docker"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Microsoft Azure"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Amazon Web Services"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "GitHub Actions"</span>
+                      <span className="text-foreground"> ]</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="code-bracket">{`}`}</span>
+                    <span className="code-bracket">;</span>
+                  </div>
+                </div>
+              </div>
+          </IDEWindow>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
           {skills.map((skill, index) => (
-            <div
+            <IDEWindow
               key={skill.title}
-              className="ide-panel hover:border-accent transition-all transform hover:-translate-y-2 duration-300"
+              showDots={false}
+              title={`${index + 1}`}
+              className="hover:border-accent transition-all transform hover:-translate-y-2 duration-300"
             >
-              <div className="ide-panel-header">
-                <span className="text-text-muted text-xs">{index + 1}</span>
-              </div>
-              <div className="p-4 sm:p-6">
-                <div className="text-accent mb-3 sm:mb-4">
+              <div className="p-4 sm:p-5">
+                <div className="text-accent mb-2 sm:mb-3">
                   {skill.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 tracking-tight">
-                  <span className="code-keyword text-xs sm:text-sm">{'class '}</span>
+                <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 tracking-tight">
+                  <span className="code-keyword text-xs">{'class '}</span>
                   <span className="code-class">{skill.title}</span>
                 </h3>
-                <p className="text-sm sm:text-base text-text-muted leading-relaxed">
+                <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
                   {skill.description}
                 </p>
               </div>
-            </div>
+            </IDEWindow>
           ))}
-        </div>
-
-        {/* Technologies */}
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue text-center mb-6 sm:mb-8 px-4 break-words">
-            <span className="code-keyword">const</span>{' '}
-            <span className="code-variable">technologies</span>{' '}
-            <span className="text-foreground">=</span>{' '}
-            <span className="code-bracket">{'['}</span>
-          </h3>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
-            {technologies.map((tech, index) => (
-              <span
-                key={tech}
-                className="px-3 sm:px-4 md:px-6 py-2 sm:py-2 md:py-3 bg-background border border-border text-green rounded-lg font-medium hover:border-green hover:shadow-lg transition-all transform hover:scale-105 cursor-default text-xs sm:text-sm md:text-base"
-              >
-                <span className="code-string">'{tech}'</span>
-                {index < technologies.length - 1 && <span className="text-foreground">,</span>}
-              </span>
-            ))}
-          </div>
-          <div className="text-center mt-3 sm:mt-4">
-            <span className="text-xl sm:text-2xl text-blue code-bracket">{']'}</span>
-            <span className="text-xl sm:text-2xl text-foreground">;</span>
-          </div>
         </div>
       </div>
     </section>

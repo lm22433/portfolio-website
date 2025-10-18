@@ -1,7 +1,9 @@
 "use client";
 
-import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
+import { GithubIcon, LinkedinIcon, Mail, Download, Code2, Zap } from "lucide-react";
 import { downloadCV } from "@/utils/downloadCV";
+import IDEWindow from "./IDEWindow";
+import TypewriterCode from "./TypewriterCode";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -14,100 +16,157 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-16"
+      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-12 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center space-y-8">
-          <div className="space-y-4 animate-fade-in-up">
-            <p className="text-base sm:text-lg md:text-xl font-medium px-2">
-              <span className="code-bracket">{'<'}</span>
-              <span className="code-function">Hello</span>
-              <span className="text-foreground">, I'm</span>
-              <span className="code-bracket">{' />'}</span>
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-accent tracking-tight px-2 break-words">
-              Harry Greentree
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue font-light tracking-wide px-2">
-              <span className="code-bracket">{'{ '}</span>
-              <span className="code-class">Software Developer</span>
-              <span className="code-bracket">{' }'}</span>
-            </p>
+
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6">
+            <div className="space-y-3 animate-fade-in-up">
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-accent tracking-tight break-words">
+                  Harry<br className="hidden sm:block" /> Greentree
+                </h1>
+              </div>
+
+              <p className="text-base md:text-lg text-blue font-medium">
+                <span className="code-bracket">{'{ '}</span>
+                <span className="code-class">Software Engineer</span>
+                <span className="code-bracket">{' }'}</span>
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-sm md:text-base text-text-muted leading-relaxed font-mono">
+                <span className="code-comment">{`// `}</span>
+                <span className="text-foreground">Crafting beautiful, functional digital solutions</span>
+              </p>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed font-mono">
+                <span className="code-comment">{`// `}</span>
+                <span className="text-foreground">Full-stack developer specializing in modern web technologies</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              <button
+                onClick={() => scrollToSection("#projects")}
+                className="group px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-accent/10 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Code2 className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                  View My Work
+                </span>
+              </button>
+              <button
+                onClick={() => downloadCV()}
+                className="group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                  Download CV
+                </span>
+              </button>
+              <button
+                onClick={() => scrollToSection("#contact")}
+                className="group px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Zap className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  Get In Touch
+                </span>
+              </button>
+            </div>
+
+            <div className="flex gap-4 pt-2">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 rounded-lg border border-green/50 text-green hover:bg-green/10 hover:border-green transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <GithubIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 rounded-lg border border-blue/50 text-blue hover:bg-blue/10 hover:border-blue transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="mailto:your.email@example.com"
+                className="group p-3 rounded-lg border border-purple/50 text-purple hover:bg-purple/10 hover:border-purple transition-all duration-300"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+            </div>
           </div>
 
-          {/* Description */}
-          <p className="text-base sm:text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed px-4">
-            <span className="code-comment">// </span>
-            <span className="text-foreground">Building innovative digital experiences with modern technologies.</span>
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            <span className="code-comment">// </span>
-            <span className="text-foreground">Passionate about creating elegant solutions to complex problems.</span>
-          </p>
+          <div className="hidden lg:flex flex-col">
+            <IDEWindow
+              title="developer.ts"
+              className="backdrop-blur-sm border-2 border-border/50 overflow-hidden"
+            >
+              <div className="p-6 text-sm">
+                <TypewriterCode
+                  className="leading-6"
+                  typingSpeed={16}
+                  startDelay={500}
+                  pauseAtEnd={1000}
+                  loop={true}
+                  tokens={[
+                    { text: "const ", className: "code-keyword" },
+                    { text: "developer ", className: "text-foreground" },
+                    { text: "= ", className: "code-bracket" },
+                    { text: "{\n", className: "code-bracket" },
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-4 px-4 max-w-4xl mx-auto">
-            <button
-              onClick={() => scrollToSection("#projects")}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-accent text-background rounded-lg font-medium hover:opacity-90 transition-all transform hover:scale-105 shadow-lg tracking-wide border border-accent text-sm sm:text-base"
-            >
-              <span className="code-keyword mr-2">$</span>
-              View My Work
-            </button>
-            <button
-              onClick={() => downloadCV()}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-blue text-blue rounded-lg font-medium hover:bg-blue hover:text-background transition-all transform hover:scale-105 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base"
-            >
-              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="code-function">Download CV</span>
-            </button>
-            <button
-              onClick={() => scrollToSection("#contact")}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-pink text-pink rounded-lg font-medium hover:bg-pink hover:text-background transition-all transform hover:scale-105 tracking-wide text-sm sm:text-base"
-            >
-              <span className="code-keyword">Get In Touch</span>
-            </button>
-          </div>
+                    { text: "  name", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " \"Harry Greentree\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-4 sm:space-x-6 pt-8 px-4">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border-2 border-green text-green hover:bg-green hover:text-background transition-all transform hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border-2 border-blue text-blue hover:bg-blue hover:text-background transition-all transform hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-            <a
-              href="mailto:your.email@example.com"
-              className="p-2 sm:p-3 rounded-full border-2 border-purple text-purple hover:bg-purple hover:text-background transition-all transform hover:scale-110"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
+                    { text: "  age", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " 22", className: "code-number" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  location", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " \"Southampton, UK\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  hasJob", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " true", className: "code-boolean" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  role", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " \"Software Engineer\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  interests", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " [\n", className: "text-foreground" },
+
+                    { text: "    \"Programming\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
+                    { text: "    \"Gaming\"\n", className: "code-string" },
+
+                    { text: "  ]\n", className: "text-foreground" },
+                    { text: "}", className: "code-bracket" },
+                    { text: ";", className: "code-bracket" },
+                  ]}
+                />
+              </div>
+            </IDEWindow>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <button
-        onClick={() => scrollToSection("#about")}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-        aria-label="Scroll to about section"
-      >
-        <ArrowDown className="w-8 h-8 text-accent" />
-      </button>
     </section>
   );
 }
