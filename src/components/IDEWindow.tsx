@@ -6,7 +6,6 @@ type IDEWindowProps = {
   title: string;
   showDots?: boolean;
   className?: string;
-  headerClassName?: string;
   children?: ReactNode;
 };
 
@@ -18,12 +17,11 @@ export default function IDEWindow({
   title,
   showDots = true,
   className,
-  headerClassName,
   children,
-}: IDEWindowProps) {
+}: Readonly<IDEWindowProps>) {
   return (
     <div className={cn("ide-panel", className)}>
-      <div className={cn("ide-panel-header", headerClassName)}>
+      <div className={"ide-panel-header"}>
         {showDots && (
           <div className="flex items-center gap-2">
             <div className="ide-panel-dot red" />

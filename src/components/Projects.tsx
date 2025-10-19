@@ -1,7 +1,9 @@
 "use client";
 
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, GithubIcon } from "lucide-react";
 import IDEWindow from "./IDEWindow";
+import { useState } from "react";
+import ProjectModal from "./ProjectModal";
 
 interface Project {
   title: string;
@@ -13,6 +15,9 @@ interface Project {
 }
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const projects: Project[] = [
     {
       title: "Marine Conservation App",
@@ -75,75 +80,99 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {projects.map((project, index) => (
-            <IDEWindow
+            <div
               key={project.title}
-              title={`project_${index + 1}.tsx`}
-              className="hover:border-purple transition-all duration-300 transform hover:-translate-y-2 flex flex-col"
+              className="group h-full"
             >
+              <IDEWindow
+                title={`project_${index + 1}.tsx`}
+                className="hover:border-purple transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full"
+              >
+                <div className="flex flex-col h-full">
+                  <button
+                    type="button"
+                    className="w-full text-left flex-1 flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-purple focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    onClick={(e) => {
+                      setSelectedProject(project);
+                      setIsModalOpen(true);
+                      // Remove focus from the card to avoid visible focus outline behind the modal
+                      (e.currentTarget as HTMLButtonElement).blur();
+                    }}
+                  >
+                    {/* Project Image */}
+                    <div className="relative h-40 sm:h-48 overflow-hidden bg-background-lighter">
+                      <img
+                        src={project.previewImage}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110 opacity-90"
+                      />
+                    </div>
 
-              {/* Project Image */}
-              <div className="relative h-40 sm:h-48 overflow-hidden bg-background-lighter">
-                <img
-                  src={project.previewImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110 opacity-90"
-                />
-              </div>
+                    {/* Project Content */}
+                    <div className="p-4 sm:p-5 flex-1 flex flex-col">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-accent mb-2 break-words">
+                        <span className="code-keyword text-xs">function </span>
+                        {project.title}
+                        <span className="code-bracket">{'() {'}</span>
+                      </h3>
+                      <p className="text-xs sm:text-sm text-text-muted mb-3 flex-1">
+                        <span className="code-comment">{'// '}</span>
+                        {project.description}
+                      </p>
 
-              {/* Project Content */}
-              <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-accent mb-2 break-words">
-                  <span className="code-keyword text-xs">function </span>
-                  {project.title}
-                  <span className="code-bracket">{'() {'}</span>
-                </h3>
-                <p className="text-xs sm:text-sm text-text-muted mb-3 flex-1">
-                  <span className="code-comment">{'// '}</span>
-                  {project.description}
-                </p>
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-1 text-xs bg-background border border-border text-blue rounded font-mono"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-2 text-foreground">
+                        <span className="code-bracket">{'}'}</span>
+                      </div>
+                    </div>
+                  </button>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs bg-background border border-border text-blue rounded font-mono"
+                  {/* Links */}
+                  <div className="px-4 sm:px-5 pb-5 pt-4 flex gap-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-2 border border-green text-green rounded hover:bg-green hover:text-background transition-all font-medium text-xs sm:text-sm"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <GithubIcon className="w-3 h-3" />
+                      Code
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-2 bg-purple text-background rounded hover:opacity-90 transition-all font-medium text-xs sm:text-sm"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      Demo
+                    </a>
+                  </div>
                 </div>
-
-                {/* Links */}
-                <div className="flex gap-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 px-3 py-2 border border-green text-green rounded hover:bg-green hover:text-background transition-all font-medium text-xs sm:text-sm"
-                  >
-                    <Github className="w-3 h-3" />
-                    Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 px-3 py-2 bg-purple text-background rounded hover:opacity-90 transition-all font-medium text-xs sm:text-sm"
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                    Demo
-                  </a>
-                </div>
-                <div className="mt-2 text-foreground">
-                  <span className="code-bracket">{'}'}</span>
-                </div>
-              </div>
-            </IDEWindow>
+              </IDEWindow>
+            </div>
           ))}
         </div>
+        <ProjectModal
+          isOpen={isModalOpen}
+          onClose={() => {
+            console.log("Closing modal dog");
+            setIsModalOpen(false)
+          }}
+          project={selectedProject}
+        />
       </div>
     </section>
   );
