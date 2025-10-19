@@ -139,11 +139,6 @@ export default function Hero() {
                     { text: " \"Southampton, UK\"", className: "code-string" },
                     { text: ",\n", className: "code-bracket" },
 
-                    { text: "  hasJob", className: "code-function" },
-                    { text: ":", className: "code-bracket" },
-                    { text: " true", className: "code-boolean" },
-                    { text: ",\n", className: "code-bracket" },
-
                     { text: "  role", className: "code-function" },
                     { text: ":", className: "code-bracket" },
                     { text: " \"Software Engineer\"", className: "code-string" },
