@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { downloadCV } from "@/utils/downloadCV";
+import { openCV } from "@/utils/openCV";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +34,7 @@ export default function Navbar() {
   };
 
   const handleDownloadCV = () => {
-    downloadCV();
+    openCV();
     setIsOpen(false);
   };
 

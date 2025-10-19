@@ -1,7 +1,7 @@
 "use client";
 
 import { GithubIcon, LinkedinIcon, Mail, Download, Code2, Zap } from "lucide-react";
-import { downloadCV } from "@/utils/downloadCV";
+import { openCV } from "@/utils/openCV";
 import IDEWindow from "./IDEWindow";
 import TypewriterCode from "./TypewriterCode";
 
@@ -58,7 +58,7 @@ export default function Hero() {
                 </span>
               </button>
               <button
-                onClick={() => downloadCV()}
+                onClick={() => openCV()}
                 className="group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
