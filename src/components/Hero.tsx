@@ -1,7 +1,9 @@
 "use client";
 
-import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
-import { downloadCV } from "@/utils/downloadCV";
+import { GithubIcon, LinkedinIcon, Mail, Download, Code2, Zap } from "lucide-react";
+import { openCV } from "@/utils/openCV";
+import IDEWindow from "./IDEWindow";
+import TypewriterCode from "./TypewriterCode";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -14,94 +16,157 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 pt-16"
+      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-12 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center space-y-8">
-          <div className="space-y-4 animate-fade-in-up">
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-medium">
-              <span className="code-bracket">{'<'}</span>Hello, I'm<span className="code-bracket">{' />'}</span>
-            </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#181818] dark:text-white tracking-tight">
-              Harry Greentree
-            </h1>
-            <p className="text-2xl sm:text-3xl md:text-4xl text-gray-700 dark:text-gray-300 font-light tracking-wide">
-              <span className="code-bracket">{'{ '}</span>
-              Software Developer
-              <span className="code-bracket">{' }'}</span>
-            </p>
+
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6">
+            <div className="space-y-3 animate-fade-in-up">
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-accent tracking-tight break-words">
+                  Harry<br className="hidden sm:block" /> Greentree
+                </h1>
+              </div>
+
+              <p className="text-base md:text-lg text-blue font-medium">
+                <span className="code-bracket">{'{ '}</span>
+                <span className="code-class">Software Engineer</span>
+                <span className="code-bracket">{' }'}</span>
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-sm md:text-base text-text-muted leading-relaxed font-mono">
+                <span className="code-comment">{`// `}</span>
+                <span className="text-foreground">Crafting beautiful, functional digital solutions</span>
+              </p>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed font-mono">
+                <span className="code-comment">{`// `}</span>
+                <span className="text-foreground">Full-stack developer specializing in modern web technologies</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              <button
+                onClick={() => scrollToSection("#projects")}
+                className="group px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-accent/10 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Code2 className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                  View My Work
+                </span>
+              </button>
+              <button
+                onClick={() => openCV()}
+                className="group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                  Download CV
+                </span>
+              </button>
+              <button
+                onClick={() => scrollToSection("#contact")}
+                className="group px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Zap className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  Get In Touch
+                </span>
+              </button>
+            </div>
+
+            <div className="flex gap-4 pt-2">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 rounded-lg border border-green/50 text-green hover:bg-green/10 hover:border-green transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <GithubIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 rounded-lg border border-blue/50 text-blue hover:bg-blue/10 hover:border-blue transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="mailto:your.email@example.com"
+                className="group p-3 rounded-lg border border-purple/50 text-purple hover:bg-purple/10 hover:border-purple transition-all duration-300"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+            </div>
           </div>
 
-          {/* Description */}
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            <span className="code-bracket">// </span>
-            Building innovative digital experiences with modern technologies.
-            Passionate about creating elegant solutions to complex problems.
-          </p>
+          <div className="hidden lg:flex flex-col">
+            <IDEWindow
+              title="developer.ts"
+              className="backdrop-blur-sm border-2 border-border/50 overflow-hidden"
+            >
+              <div className="p-6 text-sm">
+                <TypewriterCode
+                  className="leading-6"
+                  typingSpeed={16}
+                  startDelay={500}
+                  pauseAtEnd={1000}
+                  loop={true}
+                  tokens={[
+                    { text: "const ", className: "code-keyword" },
+                    { text: "developer ", className: "text-foreground" },
+                    { text: "= ", className: "code-bracket" },
+                    { text: "{\n", className: "code-bracket" },
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <button
-              onClick={() => scrollToSection("#projects")}
-              className="px-8 py-4 bg-[#181818] dark:bg-white text-white dark:text-[#181818] rounded-lg font-medium hover:opacity-90 transition-all transform hover:scale-105 shadow-lg tracking-wide"
-            >
-              <span className="code-bracket mr-2">$</span>
-              View My Work
-            </button>
-            <button
-              onClick={() => downloadCV()}
-              className="px-8 py-4 border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white rounded-lg font-medium hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-105 flex items-center gap-2 tracking-wide"
-            >
-              <Download className="w-5 h-5" />
-              Download CV
-            </button>
-            <button
-              onClick={() => scrollToSection("#contact")}
-              className="px-8 py-4 border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white rounded-lg font-medium hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-105 tracking-wide"
-            >
-              Get In Touch
-            </button>
-          </div>
+                    { text: "  name", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " \"Harry Greentree\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6 pt-8">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-              href="mailto:your.email@example.com"
-              className="p-3 rounded-full border-2 border-[#181818] dark:border-white text-[#181818] dark:text-white hover:bg-[#181818] hover:text-white dark:hover:bg-white dark:hover:text-[#181818] transition-all transform hover:scale-110"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
+                    { text: "  age", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " 22", className: "code-number" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  location", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " \"Southampton, UK\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  hasJob", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " true", className: "code-boolean" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  role", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " \"Software Engineer\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
+
+                    { text: "  interests", className: "code-function" },
+                    { text: ":", className: "code-bracket" },
+                    { text: " [\n", className: "text-foreground" },
+
+                    { text: "    \"Programming\"", className: "code-string" },
+                    { text: ",\n", className: "code-bracket" },
+                    { text: "    \"Gaming\"\n", className: "code-string" },
+
+                    { text: "  ]\n", className: "text-foreground" },
+                    { text: "}", className: "code-bracket" },
+                    { text: ";", className: "code-bracket" },
+                  ]}
+                />
+              </div>
+            </IDEWindow>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <button
-        onClick={() => scrollToSection("#about")}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-        aria-label="Scroll to about section"
-      >
-        <ArrowDown className="w-8 h-8 text-[#181818] dark:text-white" />
-      </button>
     </section>
   );
 }

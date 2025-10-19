@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Send } from "lucide-react";
+import IDEWindow from "./IDEWindow";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,103 +37,182 @@ export default function Contact() {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      value: "your.email@example.com",
-      link: "mailto:your.email@example.com",
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
-      value: "San Francisco, CA",
-      link: null,
-    },
-  ];
-
   return (
     <section
       id="contact"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-[#1a1a1a]"
+      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-background-lighter"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#181818] dark:text-white mb-4 tracking-tight">
-            <span className="opacity-50">{'< '}</span>
-            Get In Touch
-            <span className="opacity-50">{' />'}</span>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-orange mb-3 tracking-tight px-4">
+            <span className="code-bracket">{'< '}</span>
+            <span className="code-keyword">Contact Me</span>
+            <span className="code-bracket">{' />'}</span>
           </h2>
-          <div className="w-20 h-1 bg-[#181818] dark:bg-white mx-auto mb-6"></div>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            <span className="opacity-50">{'// '}</span>
-            Have a project in mind or just want to chat? Feel free to reach out!
+          <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto mb-3 sm:mb-4"></div>
+          <p className="text-xs sm:text-sm md:text-base text-text-muted max-w-2xl mx-auto px-4">
+            <span className="code-comment">{'// '}</span>
+            <span className="text-foreground">Have a project in mind or just want to chat? Feel free to reach out!</span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-[#181818] dark:text-white mb-6">
-                Let's Connect
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities to be part of your vision. Whether you have a
-                question or just want to say hi, I'll try my best to get back to
-                you!
-              </p>
-            </div>
+          <div className="space-y-4 sm:space-y-6">
+            <IDEWindow title="contact_me.md">
+              <div className="p-4 sm:p-5 font-mono text-sm">
+                <div className="space-y-1">
+                  <div>
+                    <span className="text-blue">#</span>
+                    <span className="text-foreground"> Get In Touch</span>
+                  </div>
 
-            {/* Contact Details */}
-            <div className="space-y-6">
-              {contactInfo.map((info) => (
-                <div
-                  key={info.title}
-                  className="flex items-start space-x-4 p-4 bg-white dark:bg-[#222222] rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <div className="text-[#181818] dark:text-white mt-1">
-                    {info.icon}
+                  {/* Paragraph */}
+                  <div>
+                    <span className="text-foreground">
+                      I'm open to new projects, collaborations, and speaking opportunities. If you have an idea or
+                      would like to work together, let's connect.
+                    </span>
+                  </div>
+
+                  {/* Bullets */}
+                  <div>
+                    <span className="text-blue">-</span>
+                    <span className="text-foreground"> Project inquiries</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#181818] dark:text-white mb-1">
-                      {info.title}
-                    </h4>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        className="text-gray-600 dark:text-gray-400 hover:text-[#181818] dark:hover:text-white transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {info.value}
-                      </p>
-                    )}
+                    <span className="text-blue">-</span>
+                    <span className="text-foreground"> Consulting and collaboration</span>
+                  </div>
+                  <div>
+                    <span className="text-blue">-</span>
+                    <span className="text-foreground"> General questions</span>
+                  </div>
+
+                  {/* Inline code for call-to-action */}
+                  <div className="mt-2">
+                    <span className="text-foreground">Use the form to </span>
+                    <span className="code-bracket">`</span>
+                    <span className="code-function">sendMessage()</span>
+                    <span className="code-bracket">`</span>
+                    <span className="text-foreground"> or reach out via the details below.</span>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            </IDEWindow>
+
+            {/* Contact Details */}
+            <IDEWindow title="contact_details.ts">
+              <div className="p-4 sm:p-5 font-mono text-xs sm:text-sm">
+                <div className="space-y-3">
+                  {/* Email */}
+                  <div>
+                    <div>
+                      <span className="code-keyword text-blue">const</span>
+                      <span className="text-foreground"> </span>
+                      <span className="code-variable text-purple">email</span>
+                      <span className="text-foreground"> = </span>
+                      <span className="code-bracket text-yellow">{'{'}</span>
+                    </div>
+                    <div className="pl-4">
+                      <div>
+                        <span className="text-blue">type</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Email"</span>
+                        <span className="text-foreground">,</span>
+                      </div>
+                      <div>
+                        <span className="text-blue">value</span>
+                        <span className="text-foreground">: </span>
+                        <a
+                          href="mailto:harrygreentree@icloud.com"
+                          className="code-string text-green hover:text-accent transition-colors duration-200 underline decoration-green/30 hover:decoration-accent/50"
+                        >
+                          "harrygreentree@icloud.com"
+                        </a>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="code-bracket text-yellow">{'}'}</span>
+                    </div>
+                  </div>
+
+                  {/* Phone Number */}
+                  <div>
+                    <div>
+                      <span className="code-keyword text-blue">const</span>
+                      <span className="text-foreground"> </span>
+                      <span className="code-variable text-purple">phone_number</span>
+                      <span className="text-foreground"> = </span>
+                      <span className="code-bracket text-yellow">{'{'}</span>
+                    </div>
+                    <div className="pl-4">
+                      <div>
+                        <span className="text-blue">type</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Phone Number"</span>
+                        <span className="text-foreground">,</span>
+                      </div>
+                      <div>
+                        <span className="text-blue">value</span>
+                        <span className="text-foreground">: </span>
+                        <a
+                          href="tel:+447366405543"
+                          className="code-string text-green hover:text-accent transition-colors duration-200 underline decoration-green/30 hover:decoration-accent/50"
+                        >
+                          "07366 405543"
+                        </a>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="code-bracket text-yellow">{'}'}</span>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div>
+                    <div>
+                      <span className="code-keyword text-blue">const</span>
+                      <span className="text-foreground"> </span>
+                      <span className="code-variable text-purple">location</span>
+                      <span className="text-foreground"> = </span>
+                      <span className="code-bracket text-yellow">{'{'}</span>
+                    </div>
+                    <div className="pl-4">
+                      <div>
+                        <span className="text-blue">type</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Location"</span>
+                        <span className="text-foreground">,</span>
+                      </div>
+                      <div>
+                        <span className="text-blue">value</span>
+                        <span className="text-foreground">: </span>
+                        <span className="code-string text-green">"Southampton, UK"</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="code-bracket text-yellow">{'}'}</span>
+                      <span className="text-foreground">;</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </IDEWindow>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-[#222222] p-8 rounded-lg shadow-lg">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <IDEWindow title="message.ts">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3 sm:space-y-4">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-[#181818] dark:text-white mb-2"
+                  className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  Name
+                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-variable">name</span>
+                  <span className="text-foreground"> = </span>
                 </label>
                 <input
                   type="text"
@@ -141,7 +221,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#181818] border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#181818] dark:focus:ring-white text-[#181818] dark:text-white transition-colors"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-xs sm:text-sm"
                   placeholder="Your Name"
                 />
               </div>
@@ -149,9 +229,11 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-[#181818] dark:text-white mb-2"
+                  className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  Email
+                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-variable">email</span>
+                  <span className="text-foreground"> = </span>
                 </label>
                 <input
                   type="email"
@@ -160,7 +242,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#181818] border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#181818] dark:focus:ring-white text-[#181818] dark:text-white transition-colors"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-xs sm:text-sm"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -168,9 +250,11 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-[#181818] dark:text-white mb-2"
+                  className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  Subject
+                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-variable">subject</span>
+                  <span className="text-foreground"> = </span>
                 </label>
                 <input
                   type="text"
@@ -179,7 +263,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#181818] border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#181818] dark:focus:ring-white text-[#181818] dark:text-white transition-colors"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors text-xs sm:text-sm"
                   placeholder="What's this about?"
                 />
               </div>
@@ -187,9 +271,11 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-[#181818] dark:text-white mb-2"
+                  className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  Message
+                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-variable">message</span>
+                  <span className="text-foreground"> = </span>
                 </label>
                 <textarea
                   id="message"
@@ -197,8 +283,8 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#181818] border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#181818] dark:focus:ring-white text-[#181818] dark:text-white transition-colors resize-none"
+                  rows={4}
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-foreground transition-colors resize-none text-xs sm:text-sm"
                   placeholder="Your message..."
                 />
               </div>
@@ -206,20 +292,20 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full px-6 py-4 bg-[#181818] dark:bg-white text-white dark:text-[#181818] rounded-lg font-medium hover:opacity-90 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 shadow-lg"
+                className="group w-full px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {status === "sending" && "Sending..."}
-                {status === "sent" && "Message Sent!"}
+                {status === "sending" && <span>Sending...</span>}
+                {status === "sent" && <span>✓ Message Sent!</span>}
                 {status === "idle" && (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
+                  <span className="flex items-center justify-center gap-2">
+                    <Send className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <span className="code-function">sendMessage()</span>
+                  </span>
                 )}
-                {status === "error" && "Error - Try Again"}
+                {status === "error" && <span>Error - Try Again</span>}
               </button>
             </form>
-          </div>
+          </IDEWindow>
         </div>
       </div>
     </section>

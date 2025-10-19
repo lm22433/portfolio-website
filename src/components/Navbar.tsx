@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { downloadCV } from "@/utils/downloadCV";
+import { openCV } from "@/utils/openCV";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,59 +34,58 @@ export default function Navbar() {
   };
 
   const handleDownloadCV = () => {
-    downloadCV();
+    openCV();
     setIsOpen(false);
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? "bg-white/80 dark:bg-[#181818]/80 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-lg border-border"
+          : "bg-background/80 border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="text-2xl font-bold text-[#181818] dark:text-white hover:opacity-80 transition-opacity tracking-tight"
+            className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight flex items-center gap-1 sm:gap-2"
           >
-            <span className="opacity-50">{'<'}</span>
-            Portfolio
-            <span className="opacity-50">{' />'}</span>
+            <span className="code-bracket">{'<'}</span>
+            <span className="code-keyword">Harry Greentree</span>
+            <span className="code-bracket">{' />'}</span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[#181818] dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium relative group tracking-wide"
+                className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide"
               >
-                <span className="opacity-50 group-hover:opacity-100 transition-opacity">{'> '}</span>
-                {link.name}
+                <span className="text-text-muted">{'<'}</span>
+                <span className="mx-1">{link.name}</span>
+                <span className="text-text-muted">{' />'}</span>
               </a>
             ))}
             <button
               onClick={handleDownloadCV}
-              className="text-[#181818] dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium relative group tracking-wide cursor-pointer"
-              aria-label="Download CV"
+              className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide cursor-pointer"
+              aria-label="CV"
             >
-              <span className="opacity-50 group-hover:opacity-100 transition-opacity">{'> '}</span>
-              CV
+              <span className="text-text-muted">{'<'}</span>
+              <span className="mx-1">CV</span>
+              <span className="text-text-muted">{' />'}</span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg hover:bg-background-lighter transition-colors text-accent"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -99,7 +98,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isOpen
@@ -107,22 +105,26 @@ export default function Navbar() {
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="px-4 pt-2 pb-4 space-y-2 bg-white/95 dark:bg-[#181818]/95 backdrop-blur-lg shadow-lg">
+        <div className="px-4 pt-2 pb-4 space-y-2 bg-background-lighter/95 backdrop-blur-lg border-t border-border">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="block px-4 py-3 rounded-lg text-[#181818] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+              className="block px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium text-sm sm:text-base"
             >
-              {link.name}
+              <span className="text-text-muted">{'<'}</span>
+              <span className="mx-1">{link.name}</span>
+              <span className="text-text-muted">{' />'}</span>
             </a>
           ))}
           <button
             onClick={handleDownloadCV}
-            className="block w-full text-left px-4 py-3 rounded-lg text-[#181818] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium cursor-pointer"
+            className="block w-full text-left px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium cursor-pointer text-sm sm:text-base"
           >
-            Download CV
+            <span className="text-text-muted">{'<'}</span>
+            <span className="mx-1">CV</span>
+            <span className="text-text-muted">{' />'}</span>
           </button>
         </div>
       </div>
