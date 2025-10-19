@@ -120,15 +120,29 @@ export default function About() {
                     <div>
                       <span className="code-string">"Programming Languages"</span>
                       <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [ </span>
-                      <span className="code-string">""</span>
-                      <span className="text-foreground"> ]</span>
+                      <span className="text-foreground"> [</span>
+                      <span className="code-string">"C"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "C++"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "C#"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Java"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Python"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Go"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Rust"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Haskell"</span>
+                      <span className="text-foreground">]</span>
                       <span className="code-bracket">,</span>
                     </div>
                     <div>
                       <span className="code-string">"Web Development"</span>
                       <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [ </span>
+                      <span className="text-foreground"> [</span>
                       <span className="code-string">"HTML"</span>
                       <span className="code-bracket">,</span>
                       <span className="code-string"> "CSS"</span>
@@ -136,21 +150,25 @@ export default function About() {
                       <span className="code-string"> "JavaScript"</span>
                       <span className="code-bracket">,</span>
                       <span className="code-string"> "TypeScript"</span>
-                      <span className="text-foreground"> ]</span>
+                      <span className="text-foreground">]</span>
                       <span className="code-bracket">,</span>
                     </div>
                     <div>
                       <span className="code-string">"Frameworks"</span>
                       <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [ </span>
-                      <span className="code-string">""</span>
-                      <span className="text-foreground"> ]</span>
+                      <span className="text-foreground"> [</span>
+                      <span className="code-string">"Spring Boot"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string">" React"</span>
+                      <span className="code-bracket">,</span>
+                      <span className="code-string"> "Next.js"</span>
+                      <span className="text-foreground">]</span>
                       <span className="code-bracket">,</span>
                     </div>
                     <div>
                       <span className="code-string">"Databases"</span>
                       <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [ </span>
+                      <span className="text-foreground"> [</span>
                       <span className="code-string">"PostgreSQL"</span>
                       <span className="code-bracket">,</span>
                       <span className="code-string"> "MySQL"</span>
@@ -158,13 +176,13 @@ export default function About() {
                       <span className="code-string"> "MongoDB"</span>
                       <span className="code-bracket">,</span>
                       <span className="code-string"> "Redis"</span>
-                      <span className="text-foreground"> ]</span>
+                      <span className="text-foreground">]</span>
                       <span className="code-bracket">,</span>
                     </div>
                     <div>
                       <span className="code-string">"DevOps & Containerisation"</span>
                       <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [ </span>
+                      <span className="text-foreground"> [</span>
                       <span className="code-string">"Git"</span>
                       <span className="code-bracket">,</span>
                       <span className="code-string"> "Docker"</span>
@@ -174,7 +192,7 @@ export default function About() {
                       <span className="code-string"> "Amazon Web Services"</span>
                       <span className="code-bracket">,</span>
                       <span className="code-string"> "GitHub Actions"</span>
-                      <span className="text-foreground"> ]</span>
+                      <span className="text-foreground">]</span>
                     </div>
                   </div>
 
