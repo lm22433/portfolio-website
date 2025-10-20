@@ -5,24 +5,6 @@ import { Github, Linkedin, Mail, Heart } from "lucide-react";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      icon: <Github className="w-5 h-5" />,
-      url: "https://github.com/lm22433/",
-    },
-    {
-      name: "LinkedIn",
-      icon: <Linkedin className="w-5 h-5" />,
-      url: "https://linkedin.com/in/harrygreentree/",
-    },
-    {
-      name: "Email",
-      icon: <Mail className="w-5 h-5" />,
-      url: "mailto:harrygreentree@icloud.com",
-    },
-  ];
-
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -46,7 +28,6 @@ export default function Footer() {
     <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
-          {/* Brand Section */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <button
               onClick={scrollToTop}
@@ -90,18 +71,31 @@ export default function Footer() {
               <span className="code-variable">social</span>
             </h3>
             <div className="flex space-x-3 sm:space-x-4 justify-center sm:justify-start">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 sm:p-3 rounded-full border border-border text-blue hover:bg-blue hover:text-background hover:border-blue transition-all transform hover:scale-110"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
+              <a
+                href="https://github.com/lm22433/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 rounded-lg border border-green/50 text-green hover:bg-green/10 hover:border-green transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://linkedin.com/in/harrygreentree/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 rounded-lg border border-blue/50 text-blue hover:bg-blue/10 hover:border-blue transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="mailto:harrygreentree@icloud.com"
+                className="group p-3 rounded-lg border border-purple/50 text-purple hover:bg-purple/10 hover:border-purple transition-all duration-300"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
             </div>
           </div>
         </div>
