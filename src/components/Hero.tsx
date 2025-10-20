@@ -50,7 +50,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <button
                 onClick={() => scrollToSection("#projects")}
-                className="group px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-accent/10 transition-all duration-300"
+                className="cursor-pointer group px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-accent/10 transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
                   <Code2 className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
@@ -59,7 +59,7 @@ export default function Hero() {
               </button>
               <button
                 onClick={() => openCV()}
-                className="group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
+                className="cursor-pointer group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
                   <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
@@ -68,7 +68,7 @@ export default function Hero() {
               </button>
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="group px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300"
+                className="cursor-pointer group px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
                   <Zap className="w-4 h-4 group-hover:scale-110 transition-transform" />
