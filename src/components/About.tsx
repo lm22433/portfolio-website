@@ -39,9 +39,9 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-accent mb-3 tracking-tight px-4">
-            <span className="code-bracket">{'< '}</span>
+            <span className="code-bracket">{"< "}</span>
             <span className="code-keyword">About Me</span>
-            <span className="code-bracket">{' />'}</span>
+            <span className="code-bracket">{" />"}</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto"></div>
         </div>
@@ -57,7 +57,8 @@ export default function About() {
 
                 <div className="pl-0">
                   <span className="text-foreground">
-                    I'm a passionate full-stack developer creating beautiful, functional, and user-friendly applications. I focus on
+                    I'm a passionate full-stack developer creating beautiful,
+                    functional, and user-friendly applications. I focus on
                     performance, accessibility, and developer experience.
                   </span>
                 </div>
@@ -69,15 +70,24 @@ export default function About() {
 
                 <div>
                   <span className="text-blue">-</span>
-                  <span className="text-foreground"> Building modern web applications</span>
+                  <span className="text-foreground">
+                    {" "}
+                    Building modern web applications
+                  </span>
                 </div>
                 <div>
                   <span className="text-blue">-</span>
-                  <span className="text-foreground"> Performance, scalability, and great UX</span>
+                  <span className="text-foreground">
+                    {" "}
+                    Performance, scalability, and great UX
+                  </span>
                 </div>
                 <div>
                   <span className="text-blue">-</span>
-                  <span className="text-foreground"> Collaboration, mentorship, and clear communication</span>
+                  <span className="text-foreground">
+                    {" "}
+                    Collaboration, mentorship, and clear communication
+                  </span>
                 </div>
 
                 <div className="mt-2">
@@ -100,108 +110,111 @@ export default function About() {
 
           <IDEWindow title="technologies.ts">
             <div className="p-6 font-mono text-sm">
-                <div className="space-y-1">
-                  <div className="mb-2">
-                    <span className="code-comment">{'/* '}</span>
-                    <span className="code-comment">
-                      Proficient across a broad range of software tools, frameworks, and programming languages
+              <div className="space-y-1">
+                <div className="mb-2">
+                  <span className="code-comment">{"/* "}</span>
+                  <span className="code-comment">
+                    Proficient across a broad range of software tools,
+                    frameworks, and programming languages
+                  </span>
+                  <span className="code-comment">{" */"}</span>
+                </div>
+                <div>
+                  <span className="code-keyword">const</span>
+                  <span className="text-foreground"> technologies </span>
+                  <span className="code-bracket">=</span>
+                  <span className="text-foreground"> </span>
+                  <span className="code-bracket">{`{`}</span>
+                </div>
+
+                <div className="pl-4 space-y-1">
+                  <div>
+                    <span className="code-string">"Programming Languages"</span>
+                    <span className="code-bracket">:</span>
+                    <span className="text-foreground"> [</span>
+                    <span className="code-string">"C"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "C++"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "C#"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Java"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Python"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Go"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Rust"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Haskell"</span>
+                    <span className="text-foreground">]</span>
+                    <span className="code-bracket">,</span>
+                  </div>
+                  <div>
+                    <span className="code-string">"Web Development"</span>
+                    <span className="code-bracket">:</span>
+                    <span className="text-foreground"> [</span>
+                    <span className="code-string">"HTML"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "CSS"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "JavaScript"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "TypeScript"</span>
+                    <span className="text-foreground">]</span>
+                    <span className="code-bracket">,</span>
+                  </div>
+                  <div>
+                    <span className="code-string">"Frameworks"</span>
+                    <span className="code-bracket">:</span>
+                    <span className="text-foreground"> [</span>
+                    <span className="code-string">"Spring Boot"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string">" React"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Next.js"</span>
+                    <span className="text-foreground">]</span>
+                    <span className="code-bracket">,</span>
+                  </div>
+                  <div>
+                    <span className="code-string">"Databases"</span>
+                    <span className="code-bracket">:</span>
+                    <span className="text-foreground"> [</span>
+                    <span className="code-string">"PostgreSQL"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "MySQL"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "MongoDB"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Redis"</span>
+                    <span className="text-foreground">]</span>
+                    <span className="code-bracket">,</span>
+                  </div>
+                  <div>
+                    <span className="code-string">
+                      "DevOps & Containerisation"
                     </span>
-                    <span className="code-comment">{' */'}</span>
-                  </div>
-                  <div>
-                    <span className="code-keyword">const</span>
-                    <span className="text-foreground"> technologies </span>
-                    <span className="code-bracket">=</span>
-                    <span className="text-foreground"> </span>
-                    <span className="code-bracket">{`{`}</span>
-                  </div>
-
-                  <div className="pl-4 space-y-1">
-                    <div>
-                      <span className="code-string">"Programming Languages"</span>
-                      <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [</span>
-                      <span className="code-string">"C"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "C++"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "C#"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Java"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Python"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Go"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Rust"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Haskell"</span>
-                      <span className="text-foreground">]</span>
-                      <span className="code-bracket">,</span>
-                    </div>
-                    <div>
-                      <span className="code-string">"Web Development"</span>
-                      <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [</span>
-                      <span className="code-string">"HTML"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "CSS"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "JavaScript"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "TypeScript"</span>
-                      <span className="text-foreground">]</span>
-                      <span className="code-bracket">,</span>
-                    </div>
-                    <div>
-                      <span className="code-string">"Frameworks"</span>
-                      <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [</span>
-                      <span className="code-string">"Spring Boot"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string">" React"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Next.js"</span>
-                      <span className="text-foreground">]</span>
-                      <span className="code-bracket">,</span>
-                    </div>
-                    <div>
-                      <span className="code-string">"Databases"</span>
-                      <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [</span>
-                      <span className="code-string">"PostgreSQL"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "MySQL"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "MongoDB"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Redis"</span>
-                      <span className="text-foreground">]</span>
-                      <span className="code-bracket">,</span>
-                    </div>
-                    <div>
-                      <span className="code-string">"DevOps & Containerisation"</span>
-                      <span className="code-bracket">:</span>
-                      <span className="text-foreground"> [</span>
-                      <span className="code-string">"Git"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Docker"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Microsoft Azure"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "Amazon Web Services"</span>
-                      <span className="code-bracket">,</span>
-                      <span className="code-string"> "GitHub Actions"</span>
-                      <span className="text-foreground">]</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <span className="code-bracket">{`}`}</span>
-                    <span className="code-bracket">;</span>
+                    <span className="code-bracket">:</span>
+                    <span className="text-foreground"> [</span>
+                    <span className="code-string">"Git"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Docker"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Microsoft Azure"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "Amazon Web Services"</span>
+                    <span className="code-bracket">,</span>
+                    <span className="code-string"> "GitHub Actions"</span>
+                    <span className="text-foreground">]</span>
                   </div>
                 </div>
+
+                <div>
+                  <span className="code-bracket">{`}`}</span>
+                  <span className="code-bracket">;</span>
+                </div>
               </div>
+            </div>
           </IDEWindow>
         </div>
 
@@ -214,11 +227,9 @@ export default function About() {
               className="hover:border-accent transition-all transform hover:-translate-y-2 duration-300"
             >
               <div className="p-4 sm:p-5">
-                <div className="text-accent mb-2 sm:mb-3">
-                  {skill.icon}
-                </div>
+                <div className="text-accent mb-2 sm:mb-3">{skill.icon}</div>
                 <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 tracking-tight">
-                  <span className="code-keyword text-xs">{'class '}</span>
+                  <span className="code-keyword text-xs">{"class "}</span>
                   <span className="code-class">{skill.title}</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-text-muted leading-relaxed">

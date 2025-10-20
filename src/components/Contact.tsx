@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Send } from "lucide-react";
+import { useState } from "react";
 import IDEWindow from "./IDEWindow";
 
 export default function Contact() {
@@ -13,7 +13,7 @@ export default function Contact() {
   });
 
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
+    "idle",
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -46,14 +46,17 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-orange mb-3 tracking-tight px-4">
-            <span className="code-bracket">{'< '}</span>
+            <span className="code-bracket">{"< "}</span>
             <span className="code-keyword">Contact Me</span>
-            <span className="code-bracket">{' />'}</span>
+            <span className="code-bracket">{" />"}</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto mb-3 sm:mb-4"></div>
           <p className="text-xs sm:text-sm md:text-base text-text-muted max-w-2xl mx-auto px-4">
-            <span className="code-comment">{'// '}</span>
-            <span className="text-foreground">Have a project in mind or just want to chat? Feel free to reach out!</span>
+            <span className="code-comment">{"// "}</span>
+            <span className="text-foreground">
+              Have a project in mind or just want to chat? Feel free to reach
+              out!
+            </span>
           </p>
         </div>
 
@@ -71,8 +74,9 @@ export default function Contact() {
                   {/* Paragraph */}
                   <div>
                     <span className="text-foreground">
-                      I'm open to new projects, collaborations, and speaking opportunities. If you have an idea or
-                      would like to work together, let's connect.
+                      I'm open to new projects, collaborations, and speaking
+                      opportunities. If you have an idea or would like to work
+                      together, let's connect.
                     </span>
                   </div>
 
@@ -83,7 +87,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-blue">-</span>
-                    <span className="text-foreground"> Consulting and collaboration</span>
+                    <span className="text-foreground">
+                      {" "}
+                      Consulting and collaboration
+                    </span>
                   </div>
                   <div>
                     <span className="text-blue">-</span>
@@ -96,7 +103,10 @@ export default function Contact() {
                     <span className="code-bracket">`</span>
                     <span className="code-function">sendMessage()</span>
                     <span className="code-bracket">`</span>
-                    <span className="text-foreground"> or reach out via the details below.</span>
+                    <span className="text-foreground">
+                      {" "}
+                      or reach out via the details below.
+                    </span>
                   </div>
                 </div>
               </div>
@@ -113,7 +123,7 @@ export default function Contact() {
                       <span className="text-foreground"> </span>
                       <span className="code-variable text-purple">email</span>
                       <span className="text-foreground"> = </span>
-                      <span className="code-bracket text-yellow">{'{'}</span>
+                      <span className="code-bracket text-yellow">{"{"}</span>
                     </div>
                     <div className="pl-4">
                       <div>
@@ -134,7 +144,7 @@ export default function Contact() {
                       </div>
                     </div>
                     <div>
-                      <span className="code-bracket text-yellow">{'}'}</span>
+                      <span className="code-bracket text-yellow">{"}"}</span>
                     </div>
                   </div>
 
@@ -143,15 +153,19 @@ export default function Contact() {
                     <div>
                       <span className="code-keyword text-blue">const</span>
                       <span className="text-foreground"> </span>
-                      <span className="code-variable text-purple">phone_number</span>
+                      <span className="code-variable text-purple">
+                        phone_number
+                      </span>
                       <span className="text-foreground"> = </span>
-                      <span className="code-bracket text-yellow">{'{'}</span>
+                      <span className="code-bracket text-yellow">{"{"}</span>
                     </div>
                     <div className="pl-4">
                       <div>
                         <span className="text-blue">type</span>
                         <span className="text-foreground">: </span>
-                        <span className="code-string text-green">"Phone Number"</span>
+                        <span className="code-string text-green">
+                          "Phone Number"
+                        </span>
                         <span className="text-foreground">,</span>
                       </div>
                       <div>
@@ -166,7 +180,7 @@ export default function Contact() {
                       </div>
                     </div>
                     <div>
-                      <span className="code-bracket text-yellow">{'}'}</span>
+                      <span className="code-bracket text-yellow">{"}"}</span>
                     </div>
                   </div>
 
@@ -175,25 +189,31 @@ export default function Contact() {
                     <div>
                       <span className="code-keyword text-blue">const</span>
                       <span className="text-foreground"> </span>
-                      <span className="code-variable text-purple">location</span>
+                      <span className="code-variable text-purple">
+                        location
+                      </span>
                       <span className="text-foreground"> = </span>
-                      <span className="code-bracket text-yellow">{'{'}</span>
+                      <span className="code-bracket text-yellow">{"{"}</span>
                     </div>
                     <div className="pl-4">
                       <div>
                         <span className="text-blue">type</span>
                         <span className="text-foreground">: </span>
-                        <span className="code-string text-green">"Location"</span>
+                        <span className="code-string text-green">
+                          "Location"
+                        </span>
                         <span className="text-foreground">,</span>
                       </div>
                       <div>
                         <span className="text-blue">value</span>
                         <span className="text-foreground">: </span>
-                        <span className="code-string text-green">"Southampton, UK"</span>
+                        <span className="code-string text-green">
+                          "Southampton, UK"
+                        </span>
                       </div>
                     </div>
                     <div>
-                      <span className="code-bracket text-yellow">{'}'}</span>
+                      <span className="code-bracket text-yellow">{"}"}</span>
                       <span className="text-foreground">;</span>
                     </div>
                   </div>
@@ -204,13 +224,16 @@ export default function Contact() {
 
           {/* Contact Form */}
           <IDEWindow title="message.ts">
-            <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3 sm:space-y-4">
+            <form
+              onSubmit={handleSubmit}
+              className="p-4 sm:p-5 space-y-3 sm:space-y-4"
+            >
               <div>
                 <label
                   htmlFor="name"
                   className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-keyword">const</span>{" "}
                   <span className="code-variable">name</span>
                   <span className="text-foreground"> = </span>
                 </label>
@@ -231,7 +254,7 @@ export default function Contact() {
                   htmlFor="email"
                   className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-keyword">const</span>{" "}
                   <span className="code-variable">email</span>
                   <span className="text-foreground"> = </span>
                 </label>
@@ -252,7 +275,7 @@ export default function Contact() {
                   htmlFor="subject"
                   className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-keyword">const</span>{" "}
                   <span className="code-variable">subject</span>
                   <span className="text-foreground"> = </span>
                 </label>
@@ -273,7 +296,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-xs sm:text-sm font-medium text-blue mb-2"
                 >
-                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-keyword">const</span>{" "}
                   <span className="code-variable">message</span>
                   <span className="text-foreground"> = </span>
                 </label>

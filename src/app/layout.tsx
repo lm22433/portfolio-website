@@ -5,7 +5,7 @@ import "./globals.css";
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Portfolio | Harry Greentree",
@@ -19,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="macchiato">
-      <body
-        className={`${jetbrainsMono.variable} antialiased`}
-      >
+      <body className={`${jetbrainsMono.variable} antialiased`}>
         {children}
       </body>
     </html>

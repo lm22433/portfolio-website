@@ -36,7 +36,9 @@ export default function TypewriterCode({
   const tokenRef = React.useRef(0);
   const charRef = React.useRef(0);
   const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
-  const resetTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resetTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
 
   const totalTokens = tokens.length;
 
@@ -101,7 +103,7 @@ export default function TypewriterCode({
 
     intervalRef.current = globalThis.setInterval(
       tick,
-      Math.max(typingSpeed, 8)
+      Math.max(typingSpeed, 8),
     );
 
     return () => {
@@ -118,7 +120,7 @@ export default function TypewriterCode({
       spans.push(
         <span key={`t-${i}`} className={t.className || "text-foreground"}>
           {t.text}
-        </span>
+        </span>,
       );
     }
     // current token partial
@@ -126,9 +128,12 @@ export default function TypewriterCode({
     if (current) {
       const partial = current.text.slice(0, charIndex);
       spans.push(
-        <span key={`t-${tokenIndex}`} className={current.className || "text-foreground"}>
+        <span
+          key={`t-${tokenIndex}`}
+          className={current.className || "text-foreground"}
+        >
           {partial}
-        </span>
+        </span>,
       );
     }
     return spans;

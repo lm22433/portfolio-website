@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Heart, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,10 @@ export default function Footer() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
@@ -33,20 +36,23 @@ export default function Footer() {
               onClick={scrollToTop}
               className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight"
             >
-              <span className="code-bracket">{'<'}</span>
+              <span className="code-bracket">{"<"}</span>
               <span className="code-keyword">Harry Greentree</span>
-              <span className="code-bracket">{' />'}</span>
+              <span className="code-bracket">{" />"}</span>
             </button>
             <p className="text-sm sm:text-base text-text-muted max-w-xs mx-auto sm:mx-0">
-              <span className="code-comment">{'// '}</span>
-              <span className="text-foreground">Building innovative digital experiences with passion and precision.</span>
+              <span className="code-comment">{"// "}</span>
+              <span className="text-foreground">
+                Building innovative digital experiences with passion and
+                precision.
+              </span>
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <h3 className="text-base sm:text-lg font-semibold text-accent">
-              <span className="code-keyword">const</span>{' '}
+              <span className="code-keyword">const</span>{" "}
               <span className="code-variable">quickLinks</span>
             </h3>
             <nav className="flex flex-col space-y-2">
@@ -67,7 +73,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <h3 className="text-base sm:text-lg font-semibold text-accent">
-              <span className="code-keyword">const</span>{' '}
+              <span className="code-keyword">const</span>{" "}
               <span className="code-variable">social</span>
             </h3>
             <div className="flex space-x-3 sm:space-x-4 justify-center sm:justify-start">
@@ -104,12 +110,12 @@ export default function Footer() {
         <div className="pt-6 sm:pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0 text-center md:text-left">
             <p className="text-text-muted text-xs sm:text-sm flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
-              <span className="code-comment">{'/* '}</span>
+              <span className="code-comment">{"/* "}</span>
               <span>© {currentYear} Harry Greentree. All rights reserved.</span>
-              <span className="code-comment">{' */'}</span>
+              <span className="code-comment">{" */"}</span>
             </p>
             <p className="text-text-muted text-xs sm:text-sm">
-              <span className="code-comment">{'// '}</span>
+              <span className="code-comment">{"// "}</span>
               <span className="text-foreground">Made with </span>
               <span className="text-green">Next.js</span>
               <span className="text-foreground"> + </span>

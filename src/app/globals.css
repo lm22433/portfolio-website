@@ -7,12 +7,12 @@
   --background-lighter: #24273a;
   --background-selection: #363a4f;
   --foreground: #cad3f5;
-  
+
   --accent: #eed49f;
   --accent-secondary: #ed8796;
   --text-muted: #6e738d;
   --border: #494d64;
-  
+
   --color-yellow: #eed49f;
   --color-green: #a6da95;
   --color-blue: #8aadf4;
@@ -48,7 +48,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
   letter-spacing: -0.01em;
   position: relative;
   overflow-x: hidden;
@@ -110,11 +110,16 @@ body {
 }
 
 @keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--accent),
+      0 0 10px var(--accent);
   }
   50% {
-    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    box-shadow:
+      0 0 10px var(--accent),
+      0 0 20px var(--accent);
   }
 }
 
@@ -130,7 +135,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -276,7 +282,7 @@ a:focus-visible {
 }
 
 .ide-tab::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

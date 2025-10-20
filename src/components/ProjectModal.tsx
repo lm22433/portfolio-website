@@ -1,7 +1,7 @@
 "use client";
 
-import { createPortal } from "react-dom";
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import IDEWindow from "./IDEWindow";
 
 interface ProjectModalProps {
@@ -44,22 +44,23 @@ export default function ProjectModal({
   };
 
   useEffect(() => {
-      if (!isOpen) return;
-      const onKey = (e: KeyboardEvent) => {
-          if (e.key === "Escape") onClose();
-          if (media.length > 0) {
-            if (e.key === "ArrowRight") setIndex((i) => (i + 1) % media.length);
-            if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + media.length) % media.length);
-          }
-      };
-      window.addEventListener("keydown", onKey);
-      requestAnimationFrame(() => setVisible(true));
-      const prevOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => {
-          window.removeEventListener('keydown', onKey);
-          document.body.style.overflow = prevOverflow;
-      };
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (media.length > 0) {
+        if (e.key === "ArrowRight") setIndex((i) => (i + 1) % media.length);
+        if (e.key === "ArrowLeft")
+          setIndex((i) => (i - 1 + media.length) % media.length);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    requestAnimationFrame(() => setVisible(true));
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [isOpen, onClose, media.length]);
 
   // Reset media index when project changes or modal re-opens
@@ -87,9 +88,7 @@ export default function ProjectModal({
         }}
       />
 
-      <div
-        className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 overflow-y-auto pointer-events-none"
-      >
+      <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 overflow-y-auto pointer-events-none">
         <div
           className={`pointer-events-auto w-full max-w-2xl lg:max-w-4xl transition-all duration-200 ${
             visible
@@ -118,7 +117,9 @@ export default function ProjectModal({
                         type="button"
                         aria-label="Previous"
                         className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 text-white p-2 border border-white/20"
-                        onClick={() => setIndex((i) => (i - 1 + media.length) % media.length)}
+                        onClick={() =>
+                          setIndex((i) => (i - 1 + media.length) % media.length)
+                        }
                       >
                         ‹
                       </button>
@@ -211,6 +212,6 @@ export default function ProjectModal({
         </div>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

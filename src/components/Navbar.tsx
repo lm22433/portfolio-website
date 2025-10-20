@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { openCV } from "@/utils/openCV";
 
 export default function Navbar() {
@@ -24,7 +24,10 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
@@ -53,9 +56,9 @@ export default function Navbar() {
             onClick={(e) => handleNavClick(e, "#home")}
             className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight flex items-center gap-1 sm:gap-2"
           >
-            <span className="code-bracket">{'<'}</span>
+            <span className="code-bracket">{"<"}</span>
             <span className="code-keyword">Harry Greentree</span>
-            <span className="code-bracket">{' />'}</span>
+            <span className="code-bracket">{" />"}</span>
           </a>
 
           <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-8">
@@ -66,9 +69,9 @@ export default function Navbar() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide"
               >
-                <span className="text-text-muted">{'<'}</span>
+                <span className="text-text-muted">{"<"}</span>
                 <span className="mx-1">{link.name}</span>
-                <span className="text-text-muted">{' />'}</span>
+                <span className="text-text-muted">{" />"}</span>
               </a>
             ))}
             <button
@@ -76,9 +79,9 @@ export default function Navbar() {
               className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide cursor-pointer"
               aria-label="CV"
             >
-              <span className="text-text-muted">{'<'}</span>
+              <span className="text-text-muted">{"<"}</span>
               <span className="mx-1">CV</span>
-              <span className="text-text-muted">{' />'}</span>
+              <span className="text-text-muted">{" />"}</span>
             </button>
           </div>
 
@@ -100,9 +103,7 @@ export default function Navbar() {
 
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
-          isOpen
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0 overflow-hidden"
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
         <div className="px-4 pt-2 pb-4 space-y-2 bg-background-lighter/95 backdrop-blur-lg border-t border-border">
@@ -113,18 +114,18 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, link.href)}
               className="block px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium text-sm sm:text-base"
             >
-              <span className="text-text-muted">{'<'}</span>
+              <span className="text-text-muted">{"<"}</span>
               <span className="mx-1">{link.name}</span>
-              <span className="text-text-muted">{' />'}</span>
+              <span className="text-text-muted">{" />"}</span>
             </a>
           ))}
           <button
             onClick={handleDownloadCV}
             className="block w-full text-left px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium cursor-pointer text-sm sm:text-base"
           >
-            <span className="text-text-muted">{'<'}</span>
+            <span className="text-text-muted">{"<"}</span>
             <span className="mx-1">CV</span>
-            <span className="text-text-muted">{' />'}</span>
+            <span className="text-text-muted">{" />"}</span>
           </button>
         </div>
       </div>

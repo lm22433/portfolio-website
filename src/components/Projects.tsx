@@ -1,8 +1,8 @@
 "use client";
 
 import { ExternalLink, GithubIcon } from "lucide-react";
-import IDEWindow from "./IDEWindow";
 import { useState } from "react";
+import IDEWindow from "./IDEWindow";
 import ProjectModal from "./ProjectModal";
 
 export default function Projects() {
@@ -12,20 +12,30 @@ export default function Projects() {
   const projects: Project[] = [
     {
       title: "Marine Conservation App",
-      summary: "Marine Conservation App is a mobile and web platform designed to support marine conservation efforts by providing tools for data collection, analysis, and community engagement.",
+      summary:
+        "Marine Conservation App is a mobile and web platform designed to support marine conservation efforts by providing tools for data collection, analysis, and community engagement.",
       description: "",
       previewImage: {
         type: "image",
         src: "projects/marine-conservation-app.png",
       },
       media: [],
-      tags: ["Flutter", "Dart", "Python", "Django", "PostgreSQL", "Docker", "AWS"],
+      tags: [
+        "Flutter",
+        "Dart",
+        "Python",
+        "Django",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+      ],
       github: "https://github.com/lm22433/2023-MarineConservationApp",
-      demo: ""
+      demo: "",
     },
     {
       title: "RedNoise",
-      summary: "A CPU based ray tracer written in C++ supporting wireframe, rasterization and real-time ray tracing, featuring reflective and refractive materials, metallic surfaces, and environment mapping.",
+      summary:
+        "A CPU based ray tracer written in C++ supporting wireframe, rasterization and real-time ray tracing, featuring reflective and refractive materials, metallic surfaces, and environment mapping.",
       description: "",
       previewImage: {
         type: "image",
@@ -34,15 +44,15 @@ export default function Projects() {
       media: [
         {
           type: "image",
-          src: "projects/red-noise.png"
+          src: "projects/red-noise.png",
         },
         {
           type: "video",
-          src: "projects/red-noise/render.mp4"
-        }
+          src: "projects/red-noise/render.mp4",
+        },
       ],
       tags: ["C++", "Computer Graphics"],
-      github: "https://github.com/lm22433"
+      github: "https://github.com/lm22433",
     },
     {
       title: "Shifting Sands",
@@ -55,28 +65,28 @@ export default function Projects() {
       media: [
         {
           type: "image",
-          src: "projects/shifting-sands/background_image.png"
+          src: "projects/shifting-sands/background_image.png",
         },
         {
           type: "image",
-          src: "projects/shifting-sands/group_photo.jpg"
+          src: "projects/shifting-sands/group_photo.jpg",
         },
         {
           type: "video",
-          src: "projects/shifting-sands/trailer.mp4"
+          src: "projects/shifting-sands/trailer.mp4",
         },
         {
           type: "video",
-          src: "projects/shifting-sands/technical.mp4"
+          src: "projects/shifting-sands/technical.mp4",
         },
         {
           type: "video",
-          src: "projects/shifting-sands/gameplay.mp4"
-        }
+          src: "projects/shifting-sands/gameplay.mp4",
+        },
       ],
       tags: ["Unity", "C#"],
       github: "https://github.com/lm22433/2024-SealTeam7",
-      demo: "https://sealteam7-4976a.web.app"
+      demo: "https://sealteam7-4976a.web.app",
     },
     {
       title: "High-Performance Computing",
@@ -88,11 +98,12 @@ export default function Projects() {
       },
       media: [],
       tags: ["C++", "MPI", "OpenMP", "CUDA", "Parallel Computing"],
-      github: "https://github.com/lm22433/high-performance-computing"
+      github: "https://github.com/lm22433/high-performance-computing",
     },
     {
       title: "Portfolio Website",
-      summary: "The website you are currently viewing. My portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase my projects and skills.",
+      summary:
+        "The website you are currently viewing. My portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase my projects and skills.",
       description: "",
       previewImage: {
         type: "image",
@@ -102,12 +113,20 @@ export default function Projects() {
         {
           type: "image",
           src: "projects/portfolio-website/hero.png",
-        }
+        },
       ],
-      tags: ["Node.js", "React", "TypeScript", "Next.js", "Tailwind CSS", "Docker", "Biome"],
+      tags: [
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Docker",
+        "Biome",
+      ],
       github: "https://github.com/lm22433/portfolio-website",
-      demo: "https://harrygreentree.co.uk"
-    }
+      demo: "https://harrygreentree.co.uk",
+    },
   ];
 
   return (
@@ -119,24 +138,24 @@ export default function Projects() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-accent-secondary mb-3 tracking-tight px-4">
-            <span className="code-bracket">{'< '}</span>
+            <span className="code-bracket">{"< "}</span>
             <span className="code-keyword">Projects</span>
-            <span className="code-bracket">{' />'}</span>
+            <span className="code-bracket">{" />"}</span>
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-accent-secondary mx-auto mb-3 sm:mb-4"></div>
           <p className="text-xs sm:text-sm md:text-base text-text-muted max-w-2xl mx-auto px-4">
-            <span className="code-comment">{'// '}</span>
-            <span className="text-foreground">Here are some of my recent projects that showcase my skills and passion for development</span>
+            <span className="code-comment">{"// "}</span>
+            <span className="text-foreground">
+              Here are some of my recent projects that showcase my skills and
+              passion for development
+            </span>
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="group h-full"
-            >
+            <div key={project.title} className="group h-full">
               <IDEWindow
                 title={`project_${index + 1}.tsx`}
                 className="hover:border-purple transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full"
@@ -167,10 +186,10 @@ export default function Projects() {
                       <h3 className="text-base sm:text-lg md:text-xl font-bold text-accent mb-2 break-words">
                         <span className="code-keyword text-xs">function </span>
                         {project.title}
-                        <span className="code-bracket">{'() {'}</span>
+                        <span className="code-bracket">{"() {"}</span>
                       </h3>
                       <p className="text-xs sm:text-sm text-text-muted mb-3 flex-1">
-                        <span className="code-comment">{'// '}</span>
+                        <span className="code-comment">{"// "}</span>
                         {project.summary}
                       </p>
 
@@ -186,7 +205,7 @@ export default function Projects() {
                         ))}
                       </div>
                       <div className="mt-2 text-foreground">
-                        <span className="code-bracket">{'}'}</span>
+                        <span className="code-bracket">{"}"}</span>
                       </div>
                     </div>
                   </button>

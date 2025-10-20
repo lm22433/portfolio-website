@@ -1,6 +1,13 @@
 "use client";
 
-import { GithubIcon, LinkedinIcon, Mail, Download, Code2, Zap } from "lucide-react";
+import {
+  Code2,
+  Download,
+  GithubIcon,
+  LinkedinIcon,
+  Mail,
+  Zap,
+} from "lucide-react";
 import { openCV } from "@/utils/openCV";
 import IDEWindow from "./IDEWindow";
 import TypewriterCode from "./TypewriterCode";
@@ -18,32 +25,36 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-12 overflow-hidden"
     >
-
       <div className="max-w-6xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-3 animate-fade-in-up">
               <div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-accent tracking-tight break-words">
-                  Harry<br className="hidden sm:block" /> Greentree
+                  Harry
+                  <br className="hidden sm:block" /> Greentree
                 </h1>
               </div>
 
               <p className="text-base md:text-lg text-blue font-medium">
-                <span className="code-bracket">{'{ '}</span>
+                <span className="code-bracket">{"{ "}</span>
                 <span className="code-class">Software Engineer</span>
-                <span className="code-bracket">{' }'}</span>
+                <span className="code-bracket">{" }"}</span>
               </p>
             </div>
 
             <div className="space-y-2">
               <p className="text-sm md:text-base text-text-muted leading-relaxed font-mono">
                 <span className="code-comment">{`// `}</span>
-                <span className="text-foreground">Crafting beautiful, functional digital solutions</span>
+                <span className="text-foreground">
+                  Crafting beautiful, functional digital solutions
+                </span>
               </p>
               <p className="text-sm md:text-base text-text-muted leading-relaxed font-mono">
                 <span className="code-comment">{`// `}</span>
-                <span className="text-foreground">Full-stack developer specializing in modern web technologies</span>
+                <span className="text-foreground">
+                  Full-stack developer specializing in modern web technologies
+                </span>
               </p>
             </div>
 
@@ -126,7 +137,7 @@ export default function Hero() {
 
                     { text: "  name", className: "code-function" },
                     { text: ":", className: "code-bracket" },
-                    { text: " \"Harry Greentree\"", className: "code-string" },
+                    { text: ' "Harry Greentree"', className: "code-string" },
                     { text: ",\n", className: "code-bracket" },
 
                     { text: "  age", className: "code-function" },
@@ -136,21 +147,21 @@ export default function Hero() {
 
                     { text: "  location", className: "code-function" },
                     { text: ":", className: "code-bracket" },
-                    { text: " \"Southampton, UK\"", className: "code-string" },
+                    { text: ' "Southampton, UK"', className: "code-string" },
                     { text: ",\n", className: "code-bracket" },
 
                     { text: "  role", className: "code-function" },
                     { text: ":", className: "code-bracket" },
-                    { text: " \"Software Engineer\"", className: "code-string" },
+                    { text: ' "Software Engineer"', className: "code-string" },
                     { text: ",\n", className: "code-bracket" },
 
                     { text: "  interests", className: "code-function" },
                     { text: ":", className: "code-bracket" },
                     { text: " [\n", className: "text-foreground" },
 
-                    { text: "    \"Programming\"", className: "code-string" },
+                    { text: '    "Programming"', className: "code-string" },
                     { text: ",\n", className: "code-bracket" },
-                    { text: "    \"Gaming\"\n", className: "code-string" },
+                    { text: '    "Gaming"\n', className: "code-string" },
 
                     { text: "  ]\n", className: "text-foreground" },
                     { text: "}", className: "code-bracket" },
