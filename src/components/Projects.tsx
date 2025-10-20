@@ -219,10 +219,7 @@ export default function Projects() {
         </div>
         <ProjectModal
           isOpen={isModalOpen}
-          onClose={() => {
-            console.log("Closing modal dog");
-            setIsModalOpen(false)
-          }}
+          onClose={() => setIsModalOpen(false)}
           project={selectedProject}
         />
       </div>
