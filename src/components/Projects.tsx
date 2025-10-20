@@ -5,15 +5,6 @@ import IDEWindow from "./IDEWindow";
 import { useState } from "react";
 import ProjectModal from "./ProjectModal";
 
-interface Project {
-  title: string;
-  description: string;
-  previewImage: string;
-  tags: string[];
-  github?: string;
-  demo?: string;
-}
-
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,38 +12,98 @@ export default function Projects() {
   const projects: Project[] = [
     {
       title: "Marine Conservation App",
+      summary: "Marine Conservation App is a mobile and web platform designed to support marine conservation efforts by providing tools for data collection, analysis, and community engagement.",
       description: "",
-      previewImage: "projects/marine-conservation-app.png",
+      previewImage: {
+        type: "image",
+        src: "projects/marine-conservation-app.png",
+      },
+      media: [],
       tags: ["Flutter", "Dart", "Python", "Django", "PostgreSQL", "Docker", "AWS"],
-      github: "",
+      github: "https://github.com/lm22433/2023-MarineConservationApp",
       demo: ""
     },
     {
       title: "RedNoise",
+      summary: "A CPU based ray tracer written in C++ supporting wireframe, rasterization and real-time ray tracing, featuring reflective and refractive materials, metallic surfaces, and environment mapping.",
       description: "",
-      previewImage: "projects/red-noise.png",
+      previewImage: {
+        type: "image",
+        src: "projects/red-noise.png",
+      },
+      media: [
+        {
+          type: "image",
+          src: "projects/red-noise.png"
+        },
+        {
+          type: "video",
+          src: "projects/red-noise/render.mp4"
+        }
+      ],
       tags: ["C++", "Computer Graphics"],
       github: "https://github.com/lm22433"
     },
     {
       title: "Shifting Sands",
+      summary: "Shifting Sands is an augmented reality game.",
       description: "",
-      previewImage: "projects/shifting-sands.png",
+      previewImage: {
+        type: "image",
+        src: "projects/shifting-sands/background_image.png",
+      },
+      media: [
+        {
+          type: "image",
+          src: "projects/shifting-sands/background_image.png"
+        },
+        {
+          type: "image",
+          src: "projects/shifting-sands/group_photo.jpg"
+        },
+        {
+          type: "video",
+          src: "projects/shifting-sands/trailer.mp4"
+        },
+        {
+          type: "video",
+          src: "projects/shifting-sands/technical.mp4"
+        },
+        {
+          type: "video",
+          src: "projects/shifting-sands/gameplay.mp4"
+        }
+      ],
       tags: ["Unity", "C#"],
       github: "https://github.com/lm22433/2024-SealTeam7",
       demo: "https://sealteam7-4976a.web.app"
     },
     {
       title: "High-Performance Computing",
+      summary: "",
       description: "",
-      previewImage: "projects/high-performance-computing.png",
+      previewImage: {
+        type: "image",
+        src: "projects/high-performance-computing.png",
+      },
+      media: [],
       tags: ["C++", "MPI", "OpenMP", "CUDA", "Parallel Computing"],
       github: "https://github.com/lm22433/high-performance-computing"
     },
     {
       title: "Portfolio Website",
+      summary: "The website you are currently viewing. My portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase my projects and skills.",
       description: "",
-      previewImage: "projects/portfolio-website.png",
+      previewImage: {
+        type: "image",
+        src: "projects/portfolio-website/hero.png",
+      },
+      media: [
+        {
+          type: "image",
+          src: "projects/portfolio-website/hero.png",
+        }
+      ],
       tags: ["Node.js", "React", "TypeScript", "Next.js", "Tailwind CSS", "Docker", "Biome"],
       github: "https://github.com/lm22433/portfolio-website",
       demo: "https://harrygreentree.co.uk"
@@ -101,13 +152,14 @@ export default function Projects() {
                       (e.currentTarget as HTMLButtonElement).blur();
                     }}
                   >
-                    {/* Project Image */}
+                    {/* Project Preview */}
                     <div className="relative h-40 sm:h-48 overflow-hidden bg-background-lighter">
                       <img
-                        src={project.previewImage}
-                        alt={project.title}
+                        src={project.previewImage.src}
+                        alt={project.previewImage.alt || project.title}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110 opacity-90"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-lighter opacity-60"></div>
                     </div>
 
                     {/* Project Content */}
@@ -119,7 +171,7 @@ export default function Projects() {
                       </h3>
                       <p className="text-xs sm:text-sm text-text-muted mb-3 flex-1">
                         <span className="code-comment">{'// '}</span>
-                        {project.description}
+                        {project.summary}
                       </p>
 
                       {/* Tags */}
