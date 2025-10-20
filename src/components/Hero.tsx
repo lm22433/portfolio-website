@@ -52,8 +52,8 @@ export default function Hero() {
                 onClick={() => scrollToSection("#projects")}
                 className="cursor-pointer group px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-accent/10 transition-all duration-300"
               >
-                <span className="flex items-center justify-center gap-2">
-                  <Code2 className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                <span className="flex items-center justify-between gap-2">
+                  <Code2 className="w-8 h-8 transition-transform" />
                   View My Work
                 </span>
               </button>
@@ -61,8 +61,8 @@ export default function Hero() {
                 onClick={() => openCV()}
                 className="cursor-pointer group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
               >
-                <span className="flex items-center justify-center gap-2">
-                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                <span className="flex items-center justify-between gap-2 ">
+                  <Download className="w-7 h-7 transition-transform" />
                   Download CV
                 </span>
               </button>
@@ -70,8 +70,8 @@ export default function Hero() {
                 onClick={() => scrollToSection("#contact")}
                 className="cursor-pointer group px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300"
               >
-                <span className="flex items-center justify-center gap-2">
-                  <Zap className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="flex items-center justify-between gap-2">
+                  <Zap className="w-8 h-8 transition-transform" />
                   Get In Touch
                 </span>
               </button>
@@ -79,7 +79,7 @@ export default function Hero() {
 
             <div className="flex gap-4 pt-2">
               <a
-                href="https://github.com"
+                href="https://github.com/lm22433/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-3 rounded-lg border border-green/50 text-green hover:bg-green/10 hover:border-green transition-all duration-300"
@@ -88,7 +88,7 @@ export default function Hero() {
                 <GithubIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/harrygreentree/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-3 rounded-lg border border-blue/50 text-blue hover:bg-blue/10 hover:border-blue transition-all duration-300"
@@ -97,7 +97,7 @@ export default function Hero() {
                 <LinkedinIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:harrygreentree@icloud.com"
                 className="group p-3 rounded-lg border border-purple/50 text-purple hover:bg-purple/10 hover:border-purple transition-all duration-300"
                 aria-label="Email"
               >
