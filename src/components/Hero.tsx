@@ -60,6 +60,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <button
+                type="button"
                 onClick={() => scrollToSection("#projects")}
                 className="cursor-pointer group px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-accent/10 transition-all duration-300"
               >
@@ -69,6 +70,7 @@ export default function Hero() {
                 </span>
               </button>
               <button
+                type="button"
                 onClick={() => openCV()}
                 className="cursor-pointer group px-8 py-3 border-2 border-blue text-blue rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-blue/10 transition-all duration-300"
               >
@@ -78,6 +80,7 @@ export default function Hero() {
                 </span>
               </button>
               <button
+                type="button"
                 onClick={() => scrollToSection("#contact")}
                 className="cursor-pointer group px-8 py-3 border-2 border-pink text-pink rounded-lg font-medium tracking-wide text-sm md:text-base hover:bg-pink/10 transition-all duration-300"
               >

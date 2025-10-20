@@ -51,15 +51,20 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
-          <a
-            href="#home"
-            onClick={(e) => handleNavClick(e, "#home")}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.querySelector("#home");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+              setIsOpen(false);
+            }}
             className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight flex items-center gap-1 sm:gap-2"
           >
             <span className="code-bracket">{"<"}</span>
             <span className="code-keyword">Harry Greentree</span>
             <span className="code-bracket">{" />"}</span>
-          </a>
+          </button>
 
           <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
@@ -75,6 +80,7 @@ export default function Navbar() {
               </a>
             ))}
             <button
+              type="button"
               onClick={handleDownloadCV}
               className="text-sm lg:text-base text-accent-secondary hover:text-accent transition-colors font-medium relative group tracking-wide cursor-pointer"
               aria-label="CV"
@@ -87,6 +93,7 @@ export default function Navbar() {
 
           <div className="md:hidden flex items-center gap-2">
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg hover:bg-background-lighter transition-colors text-accent"
               aria-label="Toggle menu"
@@ -120,6 +127,7 @@ export default function Navbar() {
             </a>
           ))}
           <button
+            type="button"
             onClick={handleDownloadCV}
             className="block w-full text-left px-4 py-3 rounded-lg text-accent-secondary hover:bg-background-selection hover:text-accent transition-colors font-medium cursor-pointer text-sm sm:text-base"
           >

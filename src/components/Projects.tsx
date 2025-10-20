@@ -1,7 +1,9 @@
 "use client";
 
 import { ExternalLink, GithubIcon } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
+import type { Project } from "../types";
 import IDEWindow from "./IDEWindow";
 import ProjectModal from "./ProjectModal";
 
@@ -17,7 +19,7 @@ export default function Projects() {
       description: "",
       previewImage: {
         type: "image",
-        src: "projects/marine-conservation-app.png",
+        src: "/projects/marine-conservation-app.png",
       },
       media: [],
       tags: [
@@ -39,16 +41,16 @@ export default function Projects() {
       description: "",
       previewImage: {
         type: "image",
-        src: "projects/red-noise.png",
+        src: "/projects/red-noise.png",
       },
       media: [
         {
           type: "image",
-          src: "projects/red-noise.png",
+          src: "/projects/red-noise.png",
         },
         {
           type: "video",
-          src: "projects/red-noise/render.mp4",
+          src: "/projects/red-noise/render.mp4",
         },
       ],
       tags: ["C++", "Computer Graphics"],
@@ -60,28 +62,28 @@ export default function Projects() {
       description: "",
       previewImage: {
         type: "image",
-        src: "projects/shifting-sands/background_image.png",
+        src: "/projects/shifting-sands/background_image.png",
       },
       media: [
         {
           type: "image",
-          src: "projects/shifting-sands/background_image.png",
+          src: "/projects/shifting-sands/background_image.png",
         },
         {
           type: "image",
-          src: "projects/shifting-sands/group_photo.jpg",
+          src: "/projects/shifting-sands/group_photo.jpg",
         },
         {
           type: "video",
-          src: "projects/shifting-sands/trailer.mp4",
+          src: "/projects/shifting-sands/trailer.mp4",
         },
         {
           type: "video",
-          src: "projects/shifting-sands/technical.mp4",
+          src: "/projects/shifting-sands/technical.mp4",
         },
         {
           type: "video",
-          src: "projects/shifting-sands/gameplay.mp4",
+          src: "/projects/shifting-sands/gameplay.mp4",
         },
       ],
       tags: ["Unity", "C#"],
@@ -94,7 +96,7 @@ export default function Projects() {
       description: "",
       previewImage: {
         type: "image",
-        src: "projects/high-performance-computing.png",
+        src: "/projects/high-performance-computing.png",
       },
       media: [],
       tags: ["C++", "MPI", "OpenMP", "CUDA", "Parallel Computing"],
@@ -107,12 +109,12 @@ export default function Projects() {
       description: "",
       previewImage: {
         type: "image",
-        src: "projects/portfolio-website/hero.png",
+        src: "/projects/portfolio-website/hero.png",
       },
       media: [
         {
           type: "image",
-          src: "projects/portfolio-website/hero.png",
+          src: "/projects/portfolio-website/hero.png",
         },
       ],
       tags: [
@@ -135,7 +137,6 @@ export default function Projects() {
       className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-background"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-accent-secondary mb-3 tracking-tight px-4">
             <span className="code-bracket">{"< "}</span>
@@ -152,7 +153,6 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {projects.map((project, index) => (
             <div key={project.title} className="group h-full">
@@ -167,21 +167,20 @@ export default function Projects() {
                     onClick={(e) => {
                       setSelectedProject(project);
                       setIsModalOpen(true);
-                      // Remove focus from the card to avoid visible focus outline behind the modal
                       (e.currentTarget as HTMLButtonElement).blur();
                     }}
                   >
-                    {/* Project Preview */}
                     <div className="relative h-40 sm:h-48 overflow-hidden bg-background-lighter">
-                      <img
+                      <Image
                         src={project.previewImage.src}
                         alt={project.previewImage.alt || project.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110 opacity-90"
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-300 hover:scale-110 opacity-90"
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-lighter opacity-60"></div>
                     </div>
 
-                    {/* Project Content */}
                     <div className="p-4 sm:p-5 flex-1 flex flex-col">
                       <h3 className="text-base sm:text-lg md:text-xl font-bold text-accent mb-2 break-words">
                         <span className="code-keyword text-xs">function </span>
@@ -193,9 +192,8 @@ export default function Projects() {
                         {project.summary}
                       </p>
 
-                      {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-3">
-                        {project.tags.map((tag) => (
+                        {project.tags.map((tag: string) => (
                           <span
                             key={tag}
                             className="px-2 py-1 text-xs bg-background border border-border text-blue rounded font-mono"
@@ -210,7 +208,6 @@ export default function Projects() {
                     </div>
                   </button>
 
-                  {/* Links */}
                   <div className="px-4 sm:px-5 pb-5 pt-4 flex gap-2">
                     <a
                       href={project.github}

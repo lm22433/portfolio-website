@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import type { Project, ProjectMedia } from "../types";
 import IDEWindow from "./IDEWindow";
 
 interface ProjectModalProps {
@@ -29,17 +31,26 @@ export default function ProjectModal({
           playsInline
         >
           <source src={item.src} />
+          <track
+            kind="captions"
+            srcLang="en"
+            label="English captions"
+            src={item.captions}
+          />
           Your browser does not support the video tag.
         </video>
       );
     }
-    // image or gif
     return (
-      <img
-        src={item.src}
-        alt={item.alt || altFallback}
-        className="w-full h-auto object-cover max-h-72 sm:max-h-96"
-      />
+      <div className="w-full h-auto">
+        <Image
+          src={item.src}
+          alt={item.alt || altFallback}
+          width={1600}
+          height={900}
+          className="w-full h-auto object-cover max-h-72 sm:max-h-96"
+        />
+      </div>
     );
   };
 
@@ -63,29 +74,21 @@ export default function ProjectModal({
     };
   }, [isOpen, onClose, media.length]);
 
-  // Reset media index when project changes or modal re-opens
   useEffect(() => {
     if (isOpen) setIndex(0);
-  }, [isOpen, project]);
+  }, [isOpen]);
 
   if (!isOpen || !project) return null;
 
   return createPortal(
     <div className="fixed inset-0 z-50" role="dialog" aria-modal="true">
-      <div
+      <button
+        type="button"
         className={`absolute inset-0 bg-black/60 transition-opacity duration-200 ${
           visible ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
-        role="button"
         aria-label="Close modal"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " " || e.key === "Escape") {
-            e.preventDefault();
-            onClose();
-          }
-        }}
       />
 
       <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 overflow-y-auto pointer-events-none">
@@ -102,15 +105,12 @@ export default function ProjectModal({
             className="max-h-[80vh] flex flex-col"
           >
             <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
-              {/* Media carousel or fallback preview image */}
               {media.length > 0 ? (
                 <div className="relative rounded-lg overflow-hidden border border-white/10">
-                  {/* Slides */}
                   <div key={media[index]?.src} className="w-full h-auto">
                     {renderMedia(media[index], project.title)}
                   </div>
 
-                  {/* Controls */}
                   {media.length > 1 && (
                     <>
                       <button
@@ -132,11 +132,10 @@ export default function ProjectModal({
                         ›
                       </button>
 
-                      {/* Dots */}
                       <div className="absolute bottom-2 left-0 right-0 flex items-center justify-center gap-2">
-                        {media.map((_, i) => (
+                        {media.map((m, i) => (
                           <button
-                            key={i}
+                            key={m.src}
                             type="button"
                             aria-label={`Go to slide ${i + 1}`}
                             className={`h-2 w-2 rounded-full border border-white/30 ${i === index ? "bg-white/90" : "bg-white/20"}`}
@@ -155,7 +154,6 @@ export default function ProjectModal({
                 )
               )}
 
-              {/* Project description */}
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
                   Description
@@ -165,7 +163,6 @@ export default function ProjectModal({
                 </p>
               </div>
 
-              {/* Tags */}
               {project.tags && project.tags.length > 0 && (
                 <div>
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
@@ -184,7 +181,6 @@ export default function ProjectModal({
                 </div>
               )}
 
-              {/* Links */}
               <div className="flex flex-wrap gap-3 pt-2">
                 {project.github && (
                   <a

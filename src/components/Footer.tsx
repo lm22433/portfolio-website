@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Heart, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,6 +33,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <button
+              type="button"
               onClick={scrollToTop}
               className="text-xl sm:text-2xl font-bold text-accent hover:opacity-80 transition-opacity tracking-tight"
             >

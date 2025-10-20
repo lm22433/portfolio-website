@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
   title: string;
   summary: string;
   description: string;
@@ -9,8 +9,9 @@ interface Project {
   demo?: string;
 }
 
-interface ProjectMedia {
+export interface ProjectMedia {
   type: "image" | "gif" | "video";
   src: string;
   alt?: string;
+  captions?: string;
 }
