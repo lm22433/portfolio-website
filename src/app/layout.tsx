@@ -1,10 +1,26 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const jetbrainsMono = JetBrains_Mono({
+const jetBrainsMono = localFont({
+  src: [
+    {
+      path: "../fonts/JetBrainsMonoNerdFontMono-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/JetBrainsMonoNerdFontMono-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/JetBrainsMonoNerdFontMono-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="macchiato">
-      <body className={`${jetbrainsMono.variable} antialiased`}>
+      <body className={`${jetBrainsMono.variable} antialiased`}>
         {children}
       </body>
     </html>
