@@ -15,7 +15,6 @@ export interface TypewriterCodeProps {
   loop?: boolean;
   caret?: boolean;
   className?: string;
-  caretClassName?: string;
 }
 
 export default function TypewriterCode({
@@ -26,7 +25,6 @@ export default function TypewriterCode({
   loop = false,
   caret = true,
   className = "",
-  caretClassName = "",
 }: TypewriterCodeProps) {
   const [tokenIndex, setTokenIndex] = React.useState(0);
   const [charIndex, setCharIndex] = React.useState(0);
@@ -139,7 +137,9 @@ export default function TypewriterCode({
     return spans;
   };
 
-  const showCaret = caret && started && (!done || loop);
+  // Show caret once typing has started. We'll control blinking via CSS
+  // so it can be solid while typing and blink after typing is finished.
+  const showCaret = caret && started;
 
   return (
     <div className={`whitespace-pre font-mono ${className}`}>
@@ -147,10 +147,7 @@ export default function TypewriterCode({
       {showCaret && (
         <span
           aria-hidden
-          className={
-            caretClassName ||
-            "inline-block align-[-0.2em] w-[1px] h-[1em] bg-foreground ml-0.5 animate-pulse"
-          }
+          className={done ? "code-cursor code-cursor-blink" : "code-cursor"}
         />
       )}
     </div>

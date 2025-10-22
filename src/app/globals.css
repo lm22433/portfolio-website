@@ -38,7 +38,7 @@
   --color-orange: var(--color-orange);
   --color-text-muted: var(--text-muted);
   --color-border: var(--border);
-  --font-jetbrains-mono: var(--font-jetbrains-mono);
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
 }
 
 html {
@@ -191,6 +191,18 @@ body {
   color: var(--color-purple);
 }
 
+.code-cursor {
+  display: inline-block;
+  width: 0.25em;
+  height: 1.3em;
+  background-color: var(--foreground);
+  vertical-align: middle;
+}
+
+.code-cursor-blink {
+  animation: blink 1s infinite;
+}
+
 /* Improved focus states for accessibility */
 button:focus-visible,
 a:focus-visible {
@@ -300,6 +312,163 @@ a:focus-visible {
   user-select: none;
   min-width: 3rem;
   text-align: right;
+}
+
+.terminal-panel {
+  background: var(--background-lighter);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-panel-header {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .terminal-panel-header {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.terminal-panel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .terminal-panel-dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.terminal-panel-dot.red {
+  background: #fe5f57;
+}
+
+.terminal-panel-dot.yellow {
+  background: #febc2e;
+}
+
+.terminal-panel-dot.green {
+  background: #27c840;
+}
+
+/* Terminal content area */
+.terminal-content {
+  background: var(--background);
+  color: var(--color-green);
+  padding: 1rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow-y: auto;
+  flex: 1;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .terminal-content {
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.terminal-prompt {
+  color: var(--color-green);
+  font-weight: 600;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.5em;
+  background-color: var(--color-green);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+/* Terminal syntax highlighting classes */
+.terminal-line {
+  display: block;
+  color: var(--foreground);
+}
+
+.terminal-command {
+  color: var(--color-pink);
+  font-weight: 600;
+}
+
+.terminal-flag {
+  color: var(--color-blue);
+}
+
+.terminal-argument {
+  color: var(--color-yellow);
+}
+
+.terminal-path {
+  color: var(--color-purple);
+}
+
+.terminal-directory {
+  color: var(--color-blue);
+  font-weight: 600;
+}
+
+.terminal-file {
+  color: var(--foreground);
+}
+
+.terminal-tree-branch {
+  color: var(--text-muted);
+}
+
+.terminal-keyword {
+  color: var(--color-pink);
+  font-weight: 600;
+}
+
+.terminal-string {
+  color: var(--color-yellow);
+}
+
+.terminal-number {
+  color: var(--color-purple);
+}
+
+.terminal-success {
+  color: var(--color-green);
+}
+
+.terminal-error {
+  color: var(--color-pink);
+}
+
+.terminal-warning {
+  color: var(--color-orange);
+}
+
+.terminal-info {
+  color: var(--color-blue);
+}
+
+.terminal-muted {
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* Responsive utilities */
