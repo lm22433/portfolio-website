@@ -262,7 +262,7 @@ export default function About() {
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   ├──</span>
-              <span className="terminal-keyword">Year 2</span>
+              <span className="terminal-keyword">Year 2 Modules</span>
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   │   ├──</span>
@@ -284,14 +284,7 @@ export default function About() {
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   │   ├──</span>
-              <span className="terminal-file"> Computer Systems A</span>
-            </div>
-            <div className="terminal-line">
-              <span className="terminal-tree-branch">│   │   │   └──</span>
-              <span className="terminal-file">
-                {" "}
-                Concurrent & Distributed Programming
-              </span>
+              <span className="terminal-file"> Concurrent & Distributed Programming</span>
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   │   ├──</span>
@@ -305,10 +298,6 @@ export default function About() {
               <span className="terminal-file"> Interaction & Society</span>
             </div>
             <div className="terminal-line">
-              <span className="terminal-tree-branch">│   │   ├──</span>
-              <span className="terminal-file"> Computer Systems B</span>
-            </div>
-            <div className="terminal-line">
               <span className="terminal-tree-branch">│   │   └──</span>
               <span className="terminal-file">
                 {" "}
@@ -317,7 +306,7 @@ export default function About() {
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   ├──</span>
-              <span className="terminal-keyword">Year 3</span>
+              <span className="terminal-keyword">Year 3 Modules</span>
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   │   ├──</span>
@@ -345,7 +334,7 @@ export default function About() {
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│   └──</span>
-              <span className="terminal-keyword">Year 4</span>
+              <span className="terminal-keyword">Year 4 Modules</span>
             </div>
             <div className="terminal-line">
               <span className="terminal-tree-branch">│       ├──</span>
